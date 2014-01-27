@@ -1,0 +1,3 @@
+== Problems Encountered ==
+Mapping users domain name to a website
+User login/sign up

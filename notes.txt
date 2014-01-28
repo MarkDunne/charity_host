@@ -1,3 +1,7 @@
 == Problems Encountered ==
 Mapping users domain name to a website
+	-solved by looking at domain
 User login/sign up
+	-solved using devise
+User to charity assocoiation
+	many to many assocs solved using has_and_belongs_to_many

@@ -1,2 +1,20 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
+<p><%= request.host %></p>
+
+<% if user_signed_in? %>
+	<p>You're signed in</p>
+	<h3>Create Charity</h3>
+
+	<%= form_for :charity, :url => {:controller => "charity", :action => "create"} do |f| %>
+
+	  <div><%= f.label :name %><br />
+	  <%= f.text_field :name, :autofocus => true %></div>
+
+	  <div><%= f.label :domain %><br />
+	  <%= f.text_field :domain %></div>
+
+	  <div><%= f.submit "Create Charity" %></div>
+	<% end %>
+
+<% end %>

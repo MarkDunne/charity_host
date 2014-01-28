@@ -5,3 +5,4 @@ User login/sign up
 	-solved using devise
 User to charity assocoiation
 	many to many assocs solved using has_and_belongs_to_many
+Rendering devise forms on other pages

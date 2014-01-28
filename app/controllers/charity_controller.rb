@@ -7,12 +7,17 @@ class CharityController < ApplicationController
 	end
 
 	def create
-		@charity = Charity.new(new_charity_params)
-		if @charity.save
-			render :text => 'created'
+		if !user_signed_in?
+			flash[:alert] = "You must be signed in to create a charity"
 		else
-			render :text => 'failed'
+			@charity = Charity.new(new_charity_params)
+			if @charity.save && CharitiesUsers.create(user_id: current_user.id, charity_id: @charity.id)
+				flash[:notice] = 'Charity created successfully'
+			else
+				flash[:alert] = 'Error while creating charity'
+			end
 		end
+		redirect_to :back
 	end
 
 	private

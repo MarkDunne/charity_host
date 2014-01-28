@@ -1,0 +1,9 @@
+<h3>Create Post</h3>
+<%= form_for :post, :url => {:controller => "post", :action => "create"} do |f| %>
+  <div><%= f.label :title %><br />
+  <%= f.text_field :title, :autofocus => true %></div>
+  <div><%= f.label :content %><br />
+  <%= f.text_area :content %></div>
+  <%= f.hidden_field :charity_id, :value => @charity.id %>
+  <div><%= f.submit "Create Post" %></div>
+<% end %>

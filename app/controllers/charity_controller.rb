@@ -1,8 +1,10 @@
 class CharityController < ApplicationController
-	def index
-		@charity = Charity.find_by_id(params[:id])
-		if !@charity
-			redirect_to :controller => 'home', :action => 'index'
+	def show
+		if !@is_rendering_charity
+			#make sure the user has access
+			@charity = current_user.charities.find(params[:id])
+
+			render 'charity/admin_show'
 		end
 	end
 

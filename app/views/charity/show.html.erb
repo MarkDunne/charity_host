@@ -1,0 +1,8 @@
+<h1><%= @charity.name %></h1>
+
+<% @charity.posts.each do |post| %>
+	<article>
+		<h2><%= post.title %></h2>
+		<p><%= post.content %></p>
+	</article>
+<% end %>

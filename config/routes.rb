@@ -1,7 +1,8 @@
 CharityHost::Application.routes.draw do
-  
-  get "charity/index"
-  post "charity/create"
+
+  post "post/create"
+  get "charity/show"
+  resources :charity, :path => 'charity'
 
   devise_for :users
   root :to => 'home#index'

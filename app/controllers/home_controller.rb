@@ -1,8 +1,16 @@
 class HomeController < ApplicationController
-  def index
-  	@charity = Charity.find_by_domain(request.host)
-  	if @charity
-  		redirect_to :controller => 'charity', :action => 'index', :id => @charity.id
-  	end
-  end
+
+	before_filter :redirect_to_charity_if_rendering
+
+	def index
+
+	end
+
+	private
+
+	def redirect_to_charity_if_rendering
+		if @is_rendering_charity
+			redirect_to :controller => 'charity', :action => 'show'		
+		end
+	end
 end

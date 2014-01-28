@@ -11,6 +11,6 @@
 	<p> <%= current_user.charities.count %></p>
 
 	<% current_user.charities.each do |charity| %>
-		<p><%= charity.name %></p>
+		<p><%= link_to charity.name, charity %></p>
 	<% end %>
 <% end %>

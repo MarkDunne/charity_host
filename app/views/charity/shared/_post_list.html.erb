@@ -2,6 +2,8 @@
 	<% @charity.posts.each do |post| %>
 		<li>
 			<span><strong>Title</strong> <%= post.title %></span> | 
-			<span><strong>Creator</strong> <%= post.user.email %></span></li>
+			<span><strong>Creator</strong> <%= post.user.email %></span>
+			<span><%= link_to "Edit Post", edit_post_path(@charity.id,post.id) %></span>
+			</li>
 	<% end %>
 </ol>

@@ -1,7 +1,9 @@
 CharityHost::Application.routes.draw do
 
-  post "post/create"
-
+  get 'charity/:id/posts/new', to: "post#new" , as: "new_post"
+  post 'charity/:id/posts/create', to: "post#create" , as: "create_new_post"
+  get 'charity/:id/posts/edit/:post_id', to: "post#edit", as: "edit_post"
+  patch 'charity/:id/posts/update/:post_id', to: "post#update" , as: "update_post"
 
   get '/charity/:id/:action', to: 'charity' 
   resources :charity, :path => 'charity'

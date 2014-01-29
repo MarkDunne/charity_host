@@ -1,0 +1,10 @@
+<h3>Edit Post</h3>
+<%= form_for @post, :url => {:controller => "post", :action => "update"} do |f| %>
+
+  <div><%= f.label :title %><br />
+  <%= f.text_field :title, :autofocus => true %></div>
+
+  <div><%= f.label :content %><br />
+  <%= f.text_area :content %></div>
+  <div><%= f.submit "Create Post" %></div>
+<% end %>

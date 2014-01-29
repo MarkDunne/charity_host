@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
       @is_rendering_charity = true
     else
       #makes sure the user has access && gets charity
-      @charity = current_user.charities.find(params[:id])
+      @charity = current_user.charities.find_by_id(params[:id])
     end
   end
 

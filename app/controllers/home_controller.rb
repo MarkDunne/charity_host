@@ -10,7 +10,7 @@ class HomeController < ApplicationController
 
 	def redirect_to_charity_if_rendering
 		if @is_rendering_charity
-			redirect_to :controller => 'charity', :action => 'show'		
+			redirect_to :controller => 'charity', :action => 'show', :id => @charity.id		
 		end
 	end
 end

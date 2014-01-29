@@ -11,6 +11,9 @@ class ApplicationController < ActionController::Base
     @charity = Charity.find_by_domain(request.host)
     if @charity
       @is_rendering_charity = true
+    else
+      #makes sure the user has access && gets charity
+      @charity = current_user.charities.find(params[:id])
     end
   end
 

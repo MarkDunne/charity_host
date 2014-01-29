@@ -1,0 +1,7 @@
+<ol>
+	<% @charity.posts.each do |post| %>
+		<li>
+			<span><strong>Title</strong> <%= post.title %></span> | 
+			<span><strong>Creator</strong> <%= post.user.email %></span></li>
+	<% end %>
+</ol>

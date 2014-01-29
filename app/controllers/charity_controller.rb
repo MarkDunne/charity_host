@@ -1,11 +1,18 @@
 class CharityController < ApplicationController
 	def show
-		if !@is_rendering_charity
-			#make sure the user has access
-			@charity = current_user.charities.find(params[:id])
-
-			render 'charity/admin_show'
+		if @is_rendering_charity
+			render 'charity/patron/show'
+		else
+			render 'charity/admin/show'
 		end
+	end
+
+	def posts
+		if @is_rendering_charity
+			render 'charity/patron/posts'
+		else
+			render 'charity/admin/posts'
+		end	
 	end
 
 	def create

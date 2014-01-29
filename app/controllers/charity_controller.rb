@@ -35,4 +35,8 @@ class CharityController < ApplicationController
 		params.require(:charity).permit(:name, :domain)
 	end 
 
+	def redirect_to_charity
+		#disable redirects on charity controller
+	end
+
 end

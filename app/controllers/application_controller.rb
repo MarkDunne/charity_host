@@ -11,10 +11,17 @@ class ApplicationController < ActionController::Base
     @charity = Charity.find_by_domain(request.host)
     if @charity
       @is_rendering_charity = true
+      redirect_to_charity
     else
       #makes sure the user has access && gets charity
-      @charity = current_user.charities.find_by_id(params[:id])
+      if user_signed_in?
+        @charity = current_user.charities.find_by_id(params[:id])        
+      end
     end
+  end
+
+  def redirect_to_charity
+    redirect_to charity_path(@charity)
   end
 
   #for devise forms

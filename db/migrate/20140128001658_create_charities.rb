@@ -3,7 +3,6 @@ class CreateCharities < ActiveRecord::Migration
     create_table :charities do |t|
       t.string :name
       t.string :domain
-
       t.timestamps
     end
   end

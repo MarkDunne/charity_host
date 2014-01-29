@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140128225305) do
+ActiveRecord::Schema.define(version: 20140129222124) do
 
   create_table "charities", force: true do |t|
     t.string   "name"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 20140128225305) do
 
   add_index "charities_users", ["charity_id"], name: "index_charities_users_on_charity_id"
   add_index "charities_users", ["user_id"], name: "index_charities_users_on_user_id"
+
+  create_table "charity_templates", force: true do |t|
+    t.string   "base_template", default: "charity/default"
+    t.string   "text_color"
+    t.integer  "charity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", force: true do |t|
     t.integer  "charity_id"

@@ -8,7 +8,7 @@ CharityHost::Application.routes.draw do
   patch 'charity/:id/posts/update/:post_id', to: "post#update" , as: "update_post"
 
   #appearance
-  get "charity/:id/appearance/:action", to: 'appearance', as: "appearance"
+  match "charity/:id/appearance/:action", to: 'appearance', as: "appearance", via: [:get, :patch]
 
   get '/charity/:id/:action', to: 'charity' 
   resources :charity, :path => 'charity'

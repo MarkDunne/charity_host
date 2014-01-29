@@ -1,7 +1,8 @@
 class CharityController < ApplicationController
 	def show
 		if @is_rendering_charity
-			render 'charity/patron/show'
+			@template = @charity.template
+			render 'charity/patron/show', layout: @template.base_template
 		else
 			render 'charity/admin/show'
 		end

@@ -1,2 +1,6 @@
-<h1>Appearance#index</h1>
-<p>Find me in app/views/appearance/index.html.erb</p>
+<h1>Editing Appearance of <%= @charity.name %></h1>
+
+<ul>
+	<li><%= link_to "Change base template", appearance_path(@charity.id, :template) %></li>
+	<li><%= link_to "Configure template", appearance_path(@charity.id, :configure_template) %></li>
+</ul>

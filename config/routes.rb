@@ -12,7 +12,7 @@ CharityHost::Application.routes.draw do
   #communication
   match "charity/:id/communication/:action", to: 'communication', as: "communication", via: [:get, :post]
 
-  get '/charity/:id/:action', to: 'charity' 
+  get '/charity/:id/:action', to: 'charity', as: 'charity'
   resources :charity, :path => 'charity'
 
   devise_for :users

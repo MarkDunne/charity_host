@@ -6,6 +6,7 @@ class Charity < ActiveRecord::Base
 
 	has_and_belongs_to_many :users
 	has_many :posts
+	has_many :messages
 	has_one :template, class_name: "CharityTemplate"
 
 	before_create :build_template

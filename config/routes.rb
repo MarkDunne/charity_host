@@ -1,6 +1,5 @@
 CharityHost::Application.routes.draw do
 
-
   #posts  
   get 'charity/:id/posts/new', to: "post#new" , as: "new_post"
   post 'charity/:id/posts/create', to: "post#create" , as: "create_new_post"
@@ -9,6 +8,9 @@ CharityHost::Application.routes.draw do
 
   #appearance
   match "charity/:id/appearance/:action", to: 'appearance', as: "appearance", via: [:get, :patch]
+ 
+  #communication
+  match "charity/:id/communication/:action", to: 'communication', as: "communication", via: [:get, :post]
 
   get '/charity/:id/:action', to: 'charity' 
   resources :charity, :path => 'charity'

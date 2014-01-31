@@ -5,3 +5,10 @@
 	<li><%= link_to "Communication", communication_path(@charity.id, :index) %></li>
 	<li><%= link_to "Posts", "/charity/#{@charity.id}/posts" %></li>
 </ul>
+
+<h3>Add Admin to charity</h3>
+<%= form_for @charity.users.new, :url => charity_path(@charity, :add_user) do |f| %>
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+  <div><%= f.submit "Add Admin" %></div>
+<% end %>

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  email: MyString
+  expires: 2014-02-02 17:03:27
+
+two:
+  email: MyString
+  expires: 2014-02-02 17:03:27

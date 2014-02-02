@@ -12,3 +12,12 @@
   <%= f.email_field :email %></div>
   <div><%= f.submit "Add Admin" %></div>
 <% end %>
+
+<h3>Open Admin offers</h3>
+<ul>
+<% @charity.admin_offers.each do |offer| %>
+	<% if !offer.accepted %>
+		<li><%= offer.email %></li>
+	<% end %>
+<% end %> 
+</ul>

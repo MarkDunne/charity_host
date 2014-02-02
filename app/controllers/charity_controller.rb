@@ -40,7 +40,12 @@ class CharityController < ApplicationController
 				flash[:alert] = "Error adding admin"
 			end
 		else
-			flash[:alert] = 'user doesnt exist'
+			details = add_user_params
+			details[:charity_id] = @charity.id
+			if !CharityInviteOffers.exists?(details)
+				CharityInviteOffers.create(details)
+			end
+			flash[:alert] = "Admin offer extended to #{details[:email]}"
 		end
 		redirect_to charity_path(@charity)
 	end

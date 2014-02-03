@@ -1,8 +1,9 @@
 <h1>Editing <%= @charity.name %></h1>
 
 <ul>
-	<li><%= link_to "Appearance", appearance_path(@charity.id, :index) %></li>
-	<li><%= link_to "Communication", communication_path(@charity.id, :index) %></li>
+	<li><%= link_to "Appearance", appearance_path(@charity.id) %></li>
+	<li><%= link_to "Communication", communication_path(@charity.id) %></li>
+	<li><%= link_to "Upload", upload_path(@charity) %></li>
 	<li><%= link_to "Posts", "/charity/#{@charity.id}/posts" %></li>
 </ul>
 

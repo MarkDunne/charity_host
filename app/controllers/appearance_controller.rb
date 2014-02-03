@@ -1,10 +1,4 @@
 class AppearanceController < ApplicationController
-  def index
-  end
-
-  def template
-  end
-
   def update_template
   	@charity.template.update(update_template_params)
   	redirect_to appearance_path(@charity.id)

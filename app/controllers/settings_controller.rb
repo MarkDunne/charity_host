@@ -1,0 +1,12 @@
+class SettingsController < ApplicationController
+  def update_settings
+  	@charity.settings.update(update_settings_params)
+  	redirect_to charity_path
+  end
+
+  private
+
+	def update_settings_params
+		params.require(:charity_settings).permit(:enable_paypal_donations, :paypal_email)
+	end 
+end

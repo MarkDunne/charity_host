@@ -7,9 +7,9 @@ class Charity < ActiveRecord::Base
 	has_and_belongs_to_many :users
 	has_many :posts
 	has_many :messages
-	has_one :template, class_name: "CharityTemplate"
-	has_many :admin_offers, class_name: "CharityInviteOffers"
 	has_many :uploads, class_name: "CharityFile"
+	has_one :settings, class_name: "CharitySettings"
+	has_many :admin_offers, class_name: "CharityInviteOffers"
 
-	before_create :build_template
+	before_create :build_settings
 end

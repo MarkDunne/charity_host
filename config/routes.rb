@@ -1,5 +1,6 @@
 CharityHost::Application.routes.draw do
 
+  get "settings/index"
   #posts  
   get 'charity/:id/posts/new', to: "post#new" , as: "new_post"
   post 'charity/:id/posts/create', to: "post#create" , as: "create_new_post"
@@ -11,6 +12,9 @@ CharityHost::Application.routes.draw do
  
   #communication
   match "charity/:id/communication/:action", to: 'communication', as: "communication", via: [:get, :post]
+  
+  #settings
+  match "charity/:id/settings/:action", to: 'settings', as: "settings", via: [:get, :patch]
 
   #upload 
   get "uploads/:id/*_", to: 'upload#show'

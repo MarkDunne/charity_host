@@ -1,0 +1,16 @@
+<h1>Settings#index</h1>
+
+<%= form_for @charity.settings, url: settings_path(@charity.id, :update_settings) do |f| %>
+
+	<div>
+	<%= f.label(:enable_paypal_donations, "Enable Paypal Donations") %>
+	<%= f.check_box :enable_paypal_donations %>		
+	</div>
+
+	<div>
+	<%= f.label(:paypal_email, "Paypal Email") %>
+	<%= f.text_field :paypal_email %>
+	</div>
+
+	<%= f.submit "Save Settings" %>
+<% end %> 

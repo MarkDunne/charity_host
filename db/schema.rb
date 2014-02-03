@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140202234702) do
+ActiveRecord::Schema.define(version: 20140203205132) do
 
   create_table "charities", force: true do |t|
     t.string   "name"
@@ -46,10 +46,12 @@ ActiveRecord::Schema.define(version: 20140202234702) do
     t.datetime "updated_at"
   end
 
-  create_table "charity_templates", force: true do |t|
-    t.string   "base_template", default: "charity/default"
-    t.string   "text_color"
+  create_table "charity_settings", force: true do |t|
     t.integer  "charity_id"
+    t.string   "base_template",           default: "charity/default"
+    t.string   "text_color"
+    t.boolean  "enable_paypal_donations"
+    t.string   "paypal_email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

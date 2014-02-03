@@ -1,8 +1,8 @@
 <style>
 
-<% if !@template.text_color.blank? %>
+<% if !@settings.text_color.blank? %>
 	*{
-		color: <%= @template.text_color %>
+		color: <%= @settings.text_color %>
 	}
 <% end %>
 

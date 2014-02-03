@@ -2,6 +2,11 @@ class UploadController < ApplicationController
   def index
   end
 
+  def show
+    file = @charity.uploads.select{|upload| upload.file.url == request.path}.first.file
+    send_file file.current_path,:disposition => 'inline'
+  end
+
   def upload
   	charityFile = CharityFile.new(upload_file_params)
   	charityFile.charity = @charity

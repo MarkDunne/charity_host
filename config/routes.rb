@@ -13,6 +13,7 @@ CharityHost::Application.routes.draw do
   match "charity/:id/communication/:action", to: 'communication', as: "communication", via: [:get, :post]
 
   #upload 
+  get "uploads/:id/*_", to: 'upload#show'
   match "charity/:id/upload/:action", to: 'upload', as: "upload", via: [:get, :post]
 
   get '/charity/:id/index', to: 'charity#show'

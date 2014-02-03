@@ -9,6 +9,7 @@ class Charity < ActiveRecord::Base
 	has_many :messages
 	has_one :template, class_name: "CharityTemplate"
 	has_many :admin_offers, class_name: "CharityInviteOffers"
+	has_many :uploads, class_name: "CharityFile"
 
 	before_create :build_template
 end

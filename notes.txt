@@ -7,3 +7,7 @@ User to charity assocoiation
 	many to many assocs solved using has_and_belongs_to_many
 Rendering devise forms on other pages
 Making sure that a user is making posts for only their own charity
+
+design
+http://taskly.io/
+taskrabbit.com

@@ -1,8 +1,8 @@
 class CharityController < ApplicationController
 	def show
 		if @is_rendering_charity
-			@template = @charity.template
-			render 'charity/patron/show', layout: @template.base_template
+			@settings = @charity.settings
+			render 'charity/patron/show', layout: @settings.base_template
 		else
 			render 'charity/admin/show'
 		end
@@ -30,10 +30,34 @@ class CharityController < ApplicationController
 		redirect_to :back
 	end
 
+	def add_user
+		if User.exists?(add_user_params)
+			user = User.where(add_user_params).first #email is unique
+			if !user.charities.exists?(@charity)
+				CharitiesUsers.create(user_id: user.id, charity_id: @charity.id)
+				flash[:notice] = "Admin added successfully"
+			else
+				flash[:alert] = "Error adding admin"
+			end
+		else
+			details = add_user_params
+			details[:charity_id] = @charity.id
+			if !CharityInviteOffers.exists?(details)
+				CharityInviteOffers.create(details)
+			end
+			flash[:alert] = "Admin offer extended to #{details[:email]}"
+		end
+		redirect_to charity_path(@charity)
+	end
+
 	private
 
 	def new_charity_params
 		params.require(:charity).permit(:name, :domain)
+	end 
+
+	def add_user_params
+		params.require(:user).permit(:email)
 	end 
 
 	def redirect_to_charity

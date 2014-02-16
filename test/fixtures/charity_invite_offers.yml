@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  base_template: MyString
-  text_color: MyString
+  email: MyString
+  expires: 2014-02-02 17:03:27
 
 two:
-  base_template: MyString
-  text_color: MyString
+  email: MyString
+  expires: 2014-02-02 17:03:27

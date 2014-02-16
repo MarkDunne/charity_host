@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140130211222) do
+ActiveRecord::Schema.define(version: 20140203205132) do
 
   create_table "charities", force: true do |t|
     t.string   "name"
@@ -30,10 +30,28 @@ ActiveRecord::Schema.define(version: 20140130211222) do
   add_index "charities_users", ["charity_id"], name: "index_charities_users_on_charity_id"
   add_index "charities_users", ["user_id"], name: "index_charities_users_on_user_id"
 
-  create_table "charity_templates", force: true do |t|
-    t.string   "base_template", default: "charity/default"
-    t.string   "text_color"
+  create_table "charity_files", force: true do |t|
     t.integer  "charity_id"
+    t.string   "file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "charity_invite_offers", force: true do |t|
+    t.string   "email"
+    t.integer  "charity_id"
+    t.datetime "expires"
+    t.boolean  "accepted",   default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "charity_settings", force: true do |t|
+    t.integer  "charity_id"
+    t.string   "base_template",           default: "charity/default"
+    t.string   "text_color"
+    t.boolean  "enable_paypal_donations"
+    t.string   "paypal_email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>RailsDependency</ID>
+  <OriginalElement>#charity_host</OriginalElement>
+  <nodes>
+    <node x="0.0" y="28.0">User</node>
+    <node x="776.0" y="256.0">Post</node>
+    <node x="786.0" y="0.0">Message</node>
+    <node x="786.0" y="128.0">CharityTemplate</node>
+    <node x="451.0" y="98.0">Charity</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="User" target="Message">
+      <point x="185.5" y="-96.0" />
+      <point x="451.0" y="22.0" />
+      <point x="-82.0" y="-22.0" />
+    </edge>
+    <edge source="Charity" target="Message">
+      <point x="122.5" y="-49.33333333333334" />
+      <point x="-82.0" y="22.0" />
+    </edge>
+    <edge source="User" target="Post">
+      <point x="185.5" y="96.0" />
+      <point x="451.0" y="337.0" />
+      <point x="-92.0" y="27.0" />
+    </edge>
+    <edge source="User" target="Charity">
+      <point x="185.5" y="-0.0" />
+      <point x="-122.5" y="-0.0" />
+    </edge>
+    <edge source="Charity" target="Post">
+      <point x="122.5" y="49.33333333333334" />
+      <point x="-92.0" y="-27.0" />
+    </edge>
+    <edge source="Charity" target="CharityTemplate">
+      <point x="122.5" y="-0.0" />
+      <point x="-82.0" y="-0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="480.0" y="182.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Association fields</Category>
+    <Category>Migration fields</Category>
+  </Categories>
+</Diagram>
+

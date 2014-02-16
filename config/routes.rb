@@ -1,5 +1,6 @@
 CharityHost::Application.routes.draw do
 
+  get "settings/index"
   #posts  
   get 'charity/:id/posts/new', to: "post#new" , as: "new_post"
   post 'charity/:id/posts/create', to: "post#create" , as: "create_new_post"
@@ -11,8 +12,16 @@ CharityHost::Application.routes.draw do
  
   #communication
   match "charity/:id/communication/:action", to: 'communication', as: "communication", via: [:get, :post]
+  
+  #settings
+  match "charity/:id/settings/:action", to: 'settings', as: "settings", via: [:get, :patch]
 
-  get '/charity/:id/:action', to: 'charity', as: 'charity'
+  #upload 
+  get "uploads/:id/*_", to: 'upload#show'
+  match "charity/:id/upload/:action", to: 'upload', as: "upload", via: [:get, :post]
+
+  get '/charity/:id/index', to: 'charity#show'
+  match '/charity/:id/:action', to: 'charity', as: 'charity', via: [:get, :post]
   resources :charity, :path => 'charity'
 
   devise_for :users

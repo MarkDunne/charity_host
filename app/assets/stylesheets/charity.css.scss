@@ -1,3 +1,52 @@
 // Place all the styles related to the Charity controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$nav-width: 25%;
+$nav-color: #232323;
+$white: #f1f1f1;
+
+$light-blue: #368BE1;
+$dark-blue: #1F68DC;
+
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+body{
+	font-family: 'Roboto', sans-serif;
+}
+
+nav{
+	color: $white;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: $nav-width;
+	position: absolute;
+	background-color: #232323;
+	h1{
+		padding: 25px;
+		background-color: #C02222;
+	}
+	ul{
+		list-style: none;
+		padding: 0;
+		li>*{
+			padding: 10px;
+			padding-left: 25px;
+			display: block;
+		}
+		li a{
+			padding-left: 35px;
+			text-decoration: none;
+			color: #888;
+		}
+		li a:hover{
+			background-color: #333;
+			border-left: 1px solid $white;
+		}
+	}
+}
+
+#main{
+	margin-left: $nav-width + 5%;
+}

@@ -1,11 +1,23 @@
+<!-- <p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p> -->
+
 <nav>
 	<h1><%= @charity.name %></h1>
 	<ul>
-		<li><%= link_to "Appearance", appearance_path %></li>
-		<li><%= link_to "Communication", communication_path %></li>
-		<li><%= link_to "Upload", upload_path %></li>
-		<li><%= link_to "Settings", settings_path %></li>
-		<li><%= link_to "Posts", "/charity/#{@charity.id}/posts" %></li>
+		<li><span>Appearance</span></li>
+		<li><a href="">Change Base Template</a></li>
+		<li><a href="">Configure Template</a></li>
+
+		<li><span>Communication</span></li>
+		<li><a href="">Send a message</a></li>
+
+		<li><span>Settings</span></li>
+		<li><a href="">Configure Donations</a></li>
+		<li><a href="">Configure Paypal</a></li>
+
+		<li><span>Upload</span></li>
+		<li><a href="">Upload A File</a></li>
+		<li><a href="">Manage Uploads</a></li>
 	</ul>
 </nav>
 

@@ -9,10 +9,10 @@ $white: #f1f1f1;
 $light-blue: #368BE1;
 $dark-blue: #1F68DC;
 
-@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
 
 body{
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Droid Sans', sans-serif;
 	background-color: #e6e6e6;
 }
 
@@ -58,16 +58,22 @@ nav{
 		line-height: 50px;
 		font-size: 1.2em;
 		margin-top: 25px;
+
 		h2{
 			margin: 0;
 			float: left;
+			// font-weight: 100;
 		}
 		span{
 			float: right;
 			margin-right: 50px;
+			// font-weight: 100;
 		}
 	}
 	div.charity_posts{
+		h3{
+			// font-weight: 100;
+		}
 		ul{
 			padding-left: 0;
 			list-style: none;
@@ -78,6 +84,10 @@ nav{
 				margin-top: 10px;
 				border-radius: 3px;
 				border-bottom: 2px solid #d8d8d8;
+
+				.post-right{
+					float: right;
+				}
 			}
 		}
 	}

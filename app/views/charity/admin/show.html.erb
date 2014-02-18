@@ -30,7 +30,8 @@
 			<% @charity.posts.each do |post| %>
 				<li>
 					<span><%= post.title %></span>
-					<span class="options">
+					<span class="post-right">
+						<span class="post-time"><%= post.created_at.strftime("%m/%d/%Y") %></span>
 						<a href="#"><img src="http://placehold.it/32x32"></a>
 					</span>
 				</li>

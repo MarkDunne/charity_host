@@ -28,7 +28,12 @@
 		<h3>Posts</h3>
 		<ul>
 			<% @charity.posts.each do |post| %>
-				<li><%= post.title %></li>
+				<li>
+					<span><%= post.title %></span>
+					<span class="options">
+						<a href="#"><img src="http://placehold.it/32x32"></a>
+					</span>
+				</li>
 			<% end %>
 		</ul>
 	</div>

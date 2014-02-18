@@ -13,6 +13,7 @@ $dark-blue: #1F68DC;
 
 body{
 	font-family: 'Roboto', sans-serif;
+	background-color: #e6e6e6;
 }
 
 nav{
@@ -25,6 +26,7 @@ nav{
 	background-color: #232323;
 	h1{
 		padding: 25px;
+		margin-top: 0;
 		background-color: #C02222;
 	}
 	ul{
@@ -43,10 +45,40 @@ nav{
 		li a:hover{
 			background-color: #333;
 			border-left: 1px solid $white;
+			padding-left: 34px;
 		}
 	}
 }
 
 #main{
-	margin-left: $nav-width + 5%;
+	padding-left: 50px;
+	margin-left: $nav-width;
+	div#topbar{
+		height: 50px;
+		line-height: 50px;
+		font-size: 1.2em;
+		margin-top: 25px;
+		h2{
+			margin: 0;
+			float: left;
+		}
+		span{
+			float: right;
+			margin-right: 50px;
+		}
+	}
+	div.charity_posts{
+		ul{
+			padding-left: 0;
+			list-style: none;
+			li{
+				padding: 20px;
+				margin-right: 50px;
+				background-color: #f1f1f1;
+				margin-top: 10px;
+				border-radius: 3px;
+				border-bottom: 2px solid #d8d8d8;
+			}
+		}
+	}
 }

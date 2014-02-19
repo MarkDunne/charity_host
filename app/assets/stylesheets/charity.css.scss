@@ -9,6 +9,9 @@ $white: #f1f1f1;
 $light-blue: #368BE1;
 $dark-blue: #1F68DC;
 
+$red-light: #C02222;
+$red-dark: #A52020;
+
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
 
 body{
@@ -26,8 +29,10 @@ nav{
 	background-color: #232323;
 	h1{
 		padding: 25px;
+		padding-top: 30px;
+		padding-bottom: 30px;
 		margin-top: 0;
-		background-color: #C02222;
+		background: linear-gradient($red-light, $red-dark);
 	}
 	ul{
 		list-style: none;
@@ -62,12 +67,24 @@ nav{
 		h2{
 			margin: 0;
 			float: left;
+
 			// font-weight: 100;
 		}
 		span{
 			float: right;
 			margin-right: 50px;
 			// font-weight: 100;
+
+			img{
+				vertical-align: middle;
+				top: -3px;
+				opacity: 0.5;
+				margin-left: 10px;
+				margin-right: 20px;
+			}
+			img:hover{
+				opacity: 1;
+			}
 		}
 	}
 	div.charity_posts{
@@ -86,7 +103,20 @@ nav{
 				border-bottom: 2px solid #d8d8d8;
 
 				.post-right{
+					color: #888;
 					float: right;
+					.post-time{
+						margin-right: 10px;
+					}
+					img{
+						vertical-align: middle;
+						position: relative;
+						top: -3px;
+						opacity: 0.5;
+					}
+					img:hover{
+						opacity: 1;
+					}
 				}
 			}
 		}

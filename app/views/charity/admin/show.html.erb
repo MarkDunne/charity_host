@@ -23,7 +23,7 @@
 
 
 <div id="main">
-	<div id="topbar"><h2>Recent Activity</h2><span><%= current_user.email %></span></div>
+	<div id="topbar"><h2>Recent Activity</h2><span><%= current_user.email %><a href=""><%= image_tag 'glyphicons_136_cogwheel.png', :class => "settings", alt: 'Settings' %></a></span></div>
 	<div class="charity_posts">
 		<h3>Posts</h3>
 		<ul>
@@ -32,7 +32,7 @@
 					<span><%= post.title %></span>
 					<span class="post-right">
 						<span class="post-time"><%= post.created_at.strftime("%m/%d/%Y") %></span>
-						<a href="#"><img src="http://placehold.it/32x32"></a>
+						<a href="#"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
 					</span>
 				</li>
 			<% end %>

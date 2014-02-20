@@ -4,18 +4,18 @@
 <nav>
 	<h1><%= @charity.name %></h1>
 	<ul>
-		<li><span>Appearance</span></li>
+		<li class="category"><span>Appearance</span></li>
 		<li><a href="">Change Base Template</a></li>
 		<li><a href="">Configure Template</a></li>
 
-		<li><span>Communication</span></li>
+		<li class="category"><span>Communication</span></li>
 		<li><a href="">Send a message</a></li>
 
-		<li><span>Settings</span></li>
+		<li class="category"><span>Settings</span></li>
 		<li><a href="">Configure Donations</a></li>
 		<li><a href="">Configure Paypal</a></li>
 
-		<li><span>Upload</span></li>
+		<li class="category"><span>Upload</span></li>
 		<li><a href="">Upload A File</a></li>
 		<li><a href="">Manage Uploads</a></li>
 	</ul>
@@ -32,6 +32,7 @@
 					<span><%= post.title %></span>
 					<span class="post-right">
 						<span class="post-time"><%= post.created_at.strftime("%m/%d/%Y") %></span>
+						<a href="#"><%= image_tag 'glyphicons_150_edit.png', :class => "edit", alt: "Edit" %></a>
 						<a href="#"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
 					</span>
 				</li>

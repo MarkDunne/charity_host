@@ -2,21 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$c1: #DA0734;
+$c2: #F1A20D;
+$c3: #4AABB1;
+$c4: #FCF3E7;
+$c5: #3F1833;
+
 $nav-width: 25%;
 $nav-color: #232323;
 $white: #f1f1f1;
 
-$light-blue: #368BE1;
-$dark-blue: #1F68DC;
+$light-blue: #4AABB1;
+$dark-blue: #4989E4;
 
 $red-light: #C02222;
 $red-dark: #A52020;
 
+$gray: #3D434B;
+$gray-dark: #292E33;
+
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
 
 body{
+	color: $gray;
 	font-family: 'Droid Sans', sans-serif;
-	background-color: #e6e6e6;
+	background-color: $c4;
 }
 
 nav{
@@ -26,31 +36,40 @@ nav{
 	height: 100%;
 	width: $nav-width;
 	position: absolute;
-	background-color: #232323;
+	background:  linear-gradient($gray, $gray-dark);
 	h1{
+		color: $gray;
 		padding: 25px;
 		padding-top: 30px;
 		padding-bottom: 30px;
 		margin-top: 0;
-		background: linear-gradient($red-light, $red-dark);
-	}
+		background-color: $light-blue;
+ 	}
 	ul{
 		list-style: none;
 		padding: 0;
+		color: 1.2em;
+		li{
+			margin-bottom: 12px;
+		}
 		li>*{
 			padding: 10px;
-			padding-left: 25px;
+			padding-left: 35px;
 			display: block;
 		}
 		li a{
-			padding-left: 35px;
+			// padding-left: 35px;
 			text-decoration: none;
-			color: #888;
+			color: $c4;
 		}
 		li a:hover{
-			background-color: #333;
+			background-color: rgba(255, 255, 255, 0.1);
 			border-left: 1px solid $white;
 			padding-left: 34px;
+		}
+		li.category{
+			background-color: $light-blue;
+			color: $gray;
 		}
 	}
 }
@@ -102,12 +121,13 @@ nav{
 				border-radius: 3px;
 				border-bottom: 2px solid #d8d8d8;
 
+				.post-time{
+					margin-right: 5px;
+				}
+
 				.post-right{
 					color: #888;
 					float: right;
-					.post-time{
-						margin-right: 10px;
-					}
 					img{
 						vertical-align: middle;
 						position: relative;
@@ -117,6 +137,10 @@ nav{
 					img:hover{
 						opacity: 1;
 					}
+				}
+
+				.post-right>*{
+					margin-left: 5px;
 				}
 			}
 		}

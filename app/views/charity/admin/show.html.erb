@@ -25,6 +25,22 @@
 <div id="main">
 	<div id="topbar"><h2>Recent Activity</h2><span><%= current_user.email %><a href=""><%= image_tag 'glyphicons_136_cogwheel.png', :class => "settings", alt: 'Settings' %></a></span></div>
 	<div class="charity_posts">
+		<h3>Patron Posts</h3>
+		<ul>
+			<% @charity.posts.each do |post| %>
+				<li>
+					<span><%= post.title %></span>
+					<span class="post-right">
+						<span class="post-time"><%= post.created_at.strftime("%m/%d/%Y") %></span>
+						<a href="#"><%= image_tag 'glyphicons_150_edit.png', :class => "edit", alt: "Edit" %></a>
+						<a href="#"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
+					</span>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+
+	<div class="charity_posts">
 		<h3>Posts</h3>
 		<ul>
 			<% @charity.posts.each do |post| %>

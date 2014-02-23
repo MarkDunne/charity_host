@@ -1,75 +1,35 @@
-<!-- <p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p> -->
-
-<nav>
-	<h1><%= @charity.name %></h1>
-	<ul>
-		<li class="category"><span>Appearance</span></li>
-		<li><a href="">Change Base Template</a></li>
-		<li><a href="">Configure Template</a></li>
-
-		<li class="category"><span>Communication</span></li>
-		<li><a href="">Send a message</a></li>
-
-		<li class="category"><span>Settings</span></li>
-		<li><a href="">Configure Donations</a></li>
-		<li><a href="">Configure Paypal</a></li>
-
-		<li class="category"><span>Upload</span></li>
-		<li><a href="">Upload A File</a></li>
-		<li><a href="">Manage Uploads</a></li>
-	</ul>
-</nav>
-
-
-<div id="main">
-	<div id="topbar"><h2>Recent Activity</h2><span><%= current_user.email %><a href=""><%= image_tag 'glyphicons_136_cogwheel.png', :class => "settings", alt: 'Settings' %></a></span></div>
-	<div class="charity_posts">
-		<h3>Patron Posts</h3>
-		<ul>
-			<% @charity.posts.each do |post| %>
-				<li>
-					<span><%= post.title %></span>
-					<span class="post-right">
-						<span class="post-time"><%= post.created_at.strftime("%m/%d/%Y") %></span>
-						<a href="#"><%= image_tag 'glyphicons_150_edit.png', :class => "edit", alt: "Edit" %></a>
-						<a href="#"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
-					</span>
-				</li>
-			<% end %>
-		</ul>
-	</div>
-
-	<div class="charity_posts">
-		<h3>Posts</h3>
-		<ul>
-			<% @charity.posts.each do |post| %>
-				<li>
-					<span><%= post.title %></span>
-					<span class="post-right">
-						<span class="post-time"><%= post.created_at.strftime("%m/%d/%Y") %></span>
-						<a href="#"><%= image_tag 'glyphicons_150_edit.png', :class => "edit", alt: "Edit" %></a>
-						<a href="#"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
-					</span>
-				</li>
-			<% end %>
-		</ul>
-	</div>
-</div>
-
-
-<!-- <h3>Add Admin to charity</h3>
-<%= form_for @charity.users.new, :url => charity_path(@charity, :add_user) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-  <div><%= f.submit "Add Admin" %></div>
+<% content_for :page_title do %>
+  Recent Activity
 <% end %>
 
-<h3>Open Admin offers</h3>
-<ul>
-<% @charity.admin_offers.each do |offer| %>
-	<% if !offer.accepted %>
-		<li><%= offer.email %></li>
-	<% end %>
-<% end %> 
-</ul> -->
+<div class="page-section">
+	<h3>Patron Posts</h3>
+	<ul>
+		<% @charity.posts.each do |post| %>
+			<li>
+				<span><%= post.title %></span>
+				<span class="list-right">
+					<span class="list-time"><%= post.created_at.strftime("%m/%d/%Y") %></span>
+					<a href="#"><%= image_tag 'glyphicons_150_edit.png', :class => "edit", alt: "Edit" %></a>
+					<a href="#"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
+				</span>
+			</li>
+		<% end %>
+	</ul>
+</div>
+
+<div class="page-section">
+	<h3>Posts</h3>
+	<ul>
+		<% @charity.posts.each do |post| %>
+			<li>
+				<span><%= post.title %></span>
+				<span class="list-right">
+					<span class="list-time"><%= post.created_at.strftime("%m/%d/%Y") %></span>
+					<a href="#"><%= image_tag 'glyphicons_150_edit.png', :class => "edit", alt: "Edit" %></a>
+					<a href="#"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
+				</span>
+			</li>
+		<% end %>
+	</ul>
+</div>

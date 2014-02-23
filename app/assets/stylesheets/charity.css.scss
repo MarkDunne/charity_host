@@ -106,7 +106,7 @@ nav{
 			}
 		}
 	}
-	div.charity_posts{
+	div.page-section{
 		margin-bottom: 50px;
 		h3{
 			// font-weight: 100;
@@ -122,11 +122,11 @@ nav{
 				border-radius: 3px;
 				border-bottom: 2px solid #d8d8d8;
 
-				.post-time{
+				.list-time{
 					margin-right: 5px;
 				}
 
-				.post-right{
+				.list-right{
 					color: #888;
 					float: right;
 					img{
@@ -140,7 +140,7 @@ nav{
 					}
 				}
 
-				.post-right>*{
+				.list-right>*{
 					margin-left: 5px;
 				}
 			}

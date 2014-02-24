@@ -1,3 +1,149 @@
 // Place all the styles related to the Charity controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$c1: #DA0734;
+$c2: #F1A20D;
+$c3: #4AABB1;
+$c4: #FCF3E7;
+$c5: #3F1833;
+
+$nav-width: 25%;
+$nav-color: #232323;
+$white: #f1f1f1;
+
+$light-blue: #4AABB1;
+$dark-blue: #4989E4;
+
+$red-light: #C02222;
+$red-dark: #A52020;
+
+$gray: #3D434B;
+$gray-dark: #292E33;
+
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+
+body{
+	color: $gray;
+	font-family: 'Droid Sans', sans-serif;
+	background-color: $c4;
+}
+
+nav{
+	color: $white;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: $nav-width;
+	position: absolute;
+	background:  linear-gradient($gray, $gray-dark);
+	h1{
+		color: $gray;
+		padding: 25px;
+		padding-top: 30px;
+		padding-bottom: 30px;
+		margin-top: 0;
+		background-color: $light-blue;
+ 	}
+	ul{
+		list-style: none;
+		padding: 0;
+		color: 1.2em;
+		li{
+			margin-bottom: 12px;
+		}
+		li>*{
+			padding: 10px;
+			padding-left: 35px;
+			display: block;
+		}
+		li a{
+			// padding-left: 35px;
+			text-decoration: none;
+			color: $c4;
+		}
+		li a:hover{
+			background-color: rgba(255, 255, 255, 0.1);
+			border-left: 1px solid $white;
+			padding-left: 34px;
+		}
+		li.category{
+			background-color: $light-blue;
+			color: $gray;
+		}
+	}
+}
+
+#main{
+	padding-left: 50px;
+	margin-left: $nav-width;
+	div#topbar{
+		height: 50px;
+		line-height: 50px;
+		font-size: 1.2em;
+		margin-top: 25px;
+
+		h2{
+			margin: 0;
+			float: left;
+
+			// font-weight: 100;
+		}
+		span{
+			float: right;
+			margin-right: 50px;
+			// font-weight: 100;
+
+			img{
+				vertical-align: middle;
+				top: -3px;
+				opacity: 0.5;
+				margin-left: 10px;
+				margin-right: 20px;
+			}
+			img:hover{
+				opacity: 1;
+			}
+		}
+	}
+	div.page-section{
+		margin-bottom: 50px;
+		h3{
+			// font-weight: 100;
+		}
+		ul{
+			padding-left: 0;
+			list-style: none;
+			li{
+				padding: 20px;
+				margin-right: 50px;
+				background-color: #f1f1f1;
+				margin-top: 10px;
+				border-radius: 3px;
+				border-bottom: 2px solid #d8d8d8;
+
+				.list-time{
+					margin-right: 5px;
+				}
+
+				.list-right{
+					color: #888;
+					float: right;
+					img{
+						vertical-align: middle;
+						position: relative;
+						top: -3px;
+						opacity: 0.5;
+					}
+					img:hover{
+						opacity: 1;
+					}
+				}
+
+				.list-right>*{
+					margin-left: 5px;
+				}
+			}
+		}
+	}
+}

@@ -30,7 +30,11 @@ class CharityController < ApplicationController
 		redirect_to :back
 	end
 
-	def add_user
+	def manage_admins
+		render 'charity/admin/manage_admins'
+	end
+
+	def add_admin
 		if User.exists?(add_user_params)
 			user = User.where(add_user_params).first #email is unique
 			if !user.charities.exists?(@charity)

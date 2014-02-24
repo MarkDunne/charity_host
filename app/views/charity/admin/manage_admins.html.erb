@@ -1,0 +1,28 @@
+<% content_for :page_title do %>
+  Manage Admins
+<% end %>
+
+<div class="page-section">
+	<h3>Add Admin</h3>
+	<%= form_for @charity.users.new, :url => charity_path(@charity, :add_admin) do |f| %>
+	  <div><%= f.label :email %><br />
+	  <%= f.email_field :email %></div>
+	  <div><%= f.submit "Add Admin" %></div>
+	<% end %>
+</div>
+
+<div class="page-section">
+	<h3>Open Admin offers</h3>
+	<ul>
+	<% @charity.admin_offers.each do |offer| %>
+		<% if !offer.accepted %>
+			<li>
+				<span><%= offer.email %></span>
+				<span class="list-right">
+					<a href="#"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
+				</span>
+			</li>
+		<% end %>
+	<% end %> 
+	</ul>
+</div>

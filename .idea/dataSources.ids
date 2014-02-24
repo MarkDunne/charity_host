@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source source="LOCAL" name="Rails charity_host: development" uuid="e1949493-7638-4edd-b624-ef48c960e2c7">
+  <data-source source="LOCAL" name="Rails charity_host: development" uuid="10907318-c0d1-4378-90d9-fbac8f0187e9">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
-  <data-source source="LOCAL" name="Rails charity_host: test" uuid="1d2076e3-6114-48a9-b76d-310e1da206bd">
+  <data-source source="LOCAL" name="Rails charity_host: test" uuid="d98747b1-9e29-479e-9ea6-a69963642fdb">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
 </component>

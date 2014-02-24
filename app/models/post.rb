@@ -4,4 +4,5 @@ class Post < ActiveRecord::Base
 
 	belongs_to :charity
 	belongs_to :user
+  has_many :post_tags
 end

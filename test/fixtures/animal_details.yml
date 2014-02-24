@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  post_id: 
+  name: MyString
+  species: MyString
+  color: MyString
+  phone_no: MyString
+  owner: MyString
+  last_seen: MyString
+
+two:
+  post_id: 
+  name: MyString
+  species: MyString
+  color: MyString
+  phone_no: MyString
+  owner: MyString
+  last_seen: MyString

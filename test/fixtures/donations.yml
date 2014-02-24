@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  charity_id: 
+  ammount: 1.5
+  name: MyString
+
+two:
+  charity_id: 
+  ammount: 1.5
+  name: MyString

@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  post_id: 
   user_id: 
-  charity_id: 
+  comment: MyString
 
 two:
+  post_id: 
   user_id: 
-  charity_id: 
+  comment: MyString

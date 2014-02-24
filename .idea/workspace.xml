@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9a08891d-8e1e-41bb-9f02-dc9e1b7849c0" name="Default" comment="adding idea files&#10;">
+    <list default="true" id="9a08891d-8e1e-41bb-9f02-dc9e1b7849c0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.generators" afterPath="$PROJECT_DIR$/.idea/.generators" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
@@ -64,11 +64,11 @@
                   <point x="0.0" y="0.0" />
                   <point x="0.0" y="0.0" />
                 </edge>
-                <edge source="User" target="Post">
+                <edge source="Charity" target="Message">
                   <point x="0.0" y="0.0" />
                   <point x="0.0" y="0.0" />
                 </edge>
-                <edge source="Charity" target="Message">
+                <edge source="User" target="Post">
                   <point x="0.0" y="0.0" />
                   <point x="0.0" y="0.0" />
                 </edge>
@@ -383,7 +383,11 @@
       <created>1393280075455</created>
       <updated>1393280075455</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="adding idea files">
+      <created>1393280149800</created>
+      <updated>1393280149800</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -443,9 +447,9 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="adding idea files" />
     <MESSAGE value="adding idea files&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding idea files&#10;" />
+    <MESSAGE value="adding idea files" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding idea files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -476,11 +480,11 @@
               <point x="0.0" y="0.0" />
               <point x="0.0" y="0.0" />
             </edge>
-            <edge source="User" target="Post">
+            <edge source="Charity" target="Message">
               <point x="0.0" y="0.0" />
               <point x="0.0" y="0.0" />
             </edge>
-            <edge source="Charity" target="Message">
+            <edge source="User" target="Post">
               <point x="0.0" y="0.0" />
               <point x="0.0" y="0.0" />
             </edge>

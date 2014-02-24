@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9a08891d-8e1e-41bb-9f02-dc9e1b7849c0" name="Default" comment="merging&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.generators" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/charity_host.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    <list default="true" id="9a08891d-8e1e-41bb-9f02-dc9e1b7849c0" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.generators" afterPath="$PROJECT_DIR$/.idea/.generators" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/charity_host.iml" afterPath="$PROJECT_DIR$/.idea/charity_host.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
     </list>
     <ignored path="charity_host.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,40 +57,36 @@
               <notes />
               <edges>
                 <edge source="User" target="Message">
-                  <point x="185.5" y="96.0" />
-                  <point x="451.0" y="638.0" />
-                  <point x="-82.0" y="22.0" />
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
                 </edge>
                 <edge source="Charity" target="CharitySettings">
-                  <point x="176.5" y="37.599999999999966" />
-                  <point x="-102.0" y="-0.0" />
-                </edge>
-                <edge source="User" target="Post">
-                  <point x="185.5" y="-96.0" />
-                  <point x="451.0" y="27.0" />
-                  <point x="-92.0" y="-27.0" />
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
                 </edge>
                 <edge source="Charity" target="Message">
-                  <point x="176.5" y="75.19999999999993" />
-                  <point x="884.0" y="594.0" />
-                  <point x="-82.0" y="-22.0" />
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="User" target="Post">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
                 </edge>
                 <edge source="Charity" target="CharityFile">
-                  <point x="176.5" y="-37.60000000000002" />
-                  <point x="884.0" y="182.0" />
-                  <point x="-72.0" y="-0.0" />
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
                 </edge>
                 <edge source="User" target="Charity">
-                  <point x="185.5" y="-0.0" />
-                  <point x="-176.5" y="-0.0" />
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
                 </edge>
                 <edge source="Charity" target="Post">
-                  <point x="176.5" y="-75.19999999999999" />
-                  <point x="-92.0" y="27.0" />
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
                 </edge>
                 <edge source="Charity" target="CharityInviteOffers">
-                  <point x="176.5" y="-0.0" />
-                  <point x="-92.0" y="-0.0" />
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
                 </edge>
               </edges>
               <settings layout="Hierarchic Group" zoom="0.7287234042553191" x="544.0" y="366.0" />
@@ -106,6 +101,11 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -375,6 +375,11 @@
       <created>1393279440699</created>
       <updated>1393279440699</updated>
     </task>
+    <task id="LOCAL-00001" summary="adding idea files">
+      <created>1393280004093</created>
+      <updated>1393280004093</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -399,10 +404,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998884" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32998884" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32998884" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -433,6 +439,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="adding idea files" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding idea files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -456,40 +464,36 @@
           <notes />
           <edges>
             <edge source="User" target="Message">
-              <point x="185.5" y="96.0" />
-              <point x="451.0" y="638.0" />
-              <point x="-82.0" y="22.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="Charity" target="CharitySettings">
-              <point x="176.5" y="37.599999999999966" />
-              <point x="-102.0" y="-0.0" />
-            </edge>
-            <edge source="User" target="Post">
-              <point x="185.5" y="-96.0" />
-              <point x="451.0" y="27.0" />
-              <point x="-92.0" y="-27.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="Charity" target="Message">
-              <point x="176.5" y="75.19999999999993" />
-              <point x="884.0" y="594.0" />
-              <point x="-82.0" y="-22.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="User" target="Post">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="Charity" target="CharityFile">
-              <point x="176.5" y="-37.60000000000002" />
-              <point x="884.0" y="182.0" />
-              <point x="-72.0" y="-0.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="User" target="Charity">
-              <point x="185.5" y="-0.0" />
-              <point x="-176.5" y="-0.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="Charity" target="Post">
-              <point x="176.5" y="-75.19999999999999" />
-              <point x="-92.0" y="27.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
             <edge source="Charity" target="CharityInviteOffers">
-              <point x="176.5" y="-0.0" />
-              <point x="-92.0" y="-0.0" />
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
             </edge>
           </edges>
           <settings layout="Hierarchic Group" zoom="0.7287234042553191" x="544.0" y="366.0" />

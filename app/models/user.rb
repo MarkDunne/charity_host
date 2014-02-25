@@ -4,9 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_and_belongs_to_many :charities
+  has_many :charities, through: :admins_charities
   has_many :posts
-  has_many :messages
+  has_many :comments
+  has_many :newsletter_subscriptions
+
 
   after_create :accept_admin_offers
 

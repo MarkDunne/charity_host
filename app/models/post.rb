@@ -5,4 +5,7 @@ class Post < ActiveRecord::Base
 	belongs_to :charity
 	belongs_to :user
   has_many :post_tags
+  has_many :post_photos
+  has_one :animal_detail
+  has_many :comments
 end

@@ -12,6 +12,5 @@ design
 http://taskly.io/
 taskrabbit.com
 
-TODO charity passcodes
 TODO add post_photo to schema
 TODO change name of charity_admins on schema

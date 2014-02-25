@@ -1,8 +1,11 @@
 class CharityController < ApplicationController
+
+	before_filter :choose_layout
+
 	def show
 		if @is_rendering_charity
 			@settings = @charity.settings
-			render 'charity/patron/show', layout: @settings.base_template
+			render 'charity/patron/show'
 		else
 			render 'charity/admin/show'
 		end
@@ -66,6 +69,14 @@ class CharityController < ApplicationController
 
 	def redirect_to_charity
 		#disable redirects on charity controller
+	end
+
+	def choose_layout
+		if @is_rendering_charity
+			self.class.layout @settings.base_template
+		else
+			self.class.layout 'admin'
+		end
 	end
 
 end

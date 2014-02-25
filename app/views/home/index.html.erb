@@ -8,9 +8,7 @@
 
 	<div class="spacer"></div>
 
-	<p> <%= current_user.charities.count %></p>
-
-	<% current_user.charities.each do |charity| %>
+	<% current_user.managed_charities.each do |charity| %>
 		<p><%= link_to charity.name, charity %></p>
 	<% end %>
 <% end %>

@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     else
       #makes sure the user has access && gets charity
       if user_signed_in?
-        @charity = current_user.charities.find_by_id(params[:id])        
+        @charity = current_user.managed_charities.find_by_id(params[:id])        
       end
     end
   end

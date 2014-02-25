@@ -4,11 +4,12 @@ class Charity < ActiveRecord::Base
 	validates_presence_of :name
 	validates_presence_of :domain
 
+  has_many :admins_charities
+  has_many :admins, source: :user, through: :admins_charities
 
 	has_many :posts
   has_many :donations
   has_many :newsletter_subscriptions
-  has_many :admins, through: :admins_charities
   has_one :settings, class_name: "CharitySettings"
 
 	before_create :build_settings

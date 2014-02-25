@@ -11,3 +11,5 @@ user.email = "mark@gmail.com"
 user.password = "password"
 user.password_confirmation = "password"
 user.save!
+
+Charity.create(name: "Marks Charity", domain: "lvh.me")

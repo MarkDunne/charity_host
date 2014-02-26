@@ -10,5 +10,5 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :comments
-  has_many :newsletter_subscription
+  has_many :newsletter_subscriptions
 end

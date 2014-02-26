@@ -1,8 +1,11 @@
 class CharityController < ApplicationController
+
+	before_filter :choose_layout
+
 	def show
 		if @is_rendering_charity
 			@settings = @charity.settings
-			render 'charity/patron/show', layout: @settings.base_template
+			render 'charity/patron/show'
 		else
 			render 'charity/admin/show'
 		end
@@ -36,7 +39,7 @@ class CharityController < ApplicationController
 
 	def add_admin
 		if User.exists?(add_user_params)
-			user = User.where(add_user_params).first #email is unique
+			user = User.find_by(add_user_params) #email is unique
 			if !user.charities.exists?(@charity)
 				CharitiesUsers.create(user_id: user.id, charity_id: @charity.id)
 				flash[:notice] = "Admin added successfully"
@@ -54,7 +57,22 @@ class CharityController < ApplicationController
 		redirect_to charity_path(@charity)
 	end
 
+	def check_passcode
+		charity = Charity.find_by(check_passcode_params)
+		if charity && user_signed_in?
+			AdminsCharity.find_or_create_by(user_id: current_user.id, charity_id: charity.id)
+			flash[:notice] = "Passcode Successful"
+		else
+			flash[:alert] = "Passcode Failed"
+		end
+		redirect_to :root
+	end
+
 	private
+
+	def check_passcode_params
+		params.require(:charity).permit(:passcode)
+	end 
 
 	def new_charity_params
 		params.require(:charity).permit(:name, :domain)
@@ -66,6 +84,14 @@ class CharityController < ApplicationController
 
 	def redirect_to_charity
 		#disable redirects on charity controller
+	end
+
+	def choose_layout
+		if @is_rendering_charity
+			self.class.layout @settings.base_template
+		else
+			self.class.layout 'admin'
+		end
 	end
 
 end

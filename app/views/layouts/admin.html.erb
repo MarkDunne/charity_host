@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CharityHost</title>
+  	<link data-turbolinks-track="true" href="/assets/application.css?body=1" media="all" rel="stylesheet" />
+	<link data-turbolinks-track="true" href="/assets/charity.css?body=1" media="all" rel="stylesheet" />
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<nav>
+	<h1><%= @charity.name %></h1>
+	<ul>
+
+		<li><a href=<%= charity_path %>>Home</a></li>
+		<li class="category"><span>Appearance</span></li>
+		<li><a href="">Change Base Template</a></li>
+		<li><a href="">Configure Template</a></li>
+
+		<li class="category"><span>Communication</span></li>
+		<li><a href="">Send a message</a></li>
+
+		<li class="category"><span>Settings</span></li>
+		<li><a href="">Configure Donations</a></li>
+		<li><a href="">Configure Paypal</a></li>
+		<li><a href="manage_admins">Manage Admins</a></li>
+
+		<li class="category"><span>Upload</span></li>
+		<li><a href="">Upload A File</a></li>
+		<li><a href="">Manage Uploads</a></li>
+	</ul>
+</nav>
+
+<div id="main">
+<div id="topbar">
+	<h2><%= yield :page_title %></h2>
+	<span><%= current_user.email %><a href=""><%= image_tag 'glyphicons_136_cogwheel.png', :class => "settings", alt: 'Settings' %></a></span>
+</div>
+	<%= yield %>
+</div>
+
+</body>
+</html>

@@ -2,12 +2,10 @@
 
 one:
   charity_id: 
-  user_id: 
-  title: MyString
-  content: MyString
+  amount: 1.5
+  name: MyString
 
 two:
   charity_id: 
-  user_id: 
-  title: MyString
-  content: MyString
+  amount: 1.5
+  name: MyString

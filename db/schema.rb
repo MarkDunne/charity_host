@@ -11,37 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140203205132) do
+ActiveRecord::Schema.define(version: 20140226232357) do
 
-  create_table "charities", force: true do |t|
-    t.string   "name"
-    t.string   "domain"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "charities_users", force: true do |t|
+  create_table "admins_charities", force: true do |t|
     t.integer  "user_id"
     t.integer  "charity_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "charities_users", ["charity_id"], name: "index_charities_users_on_charity_id"
-  add_index "charities_users", ["user_id"], name: "index_charities_users_on_user_id"
+  add_index "admins_charities", ["charity_id"], name: "index_admins_charities_on_charity_id"
+  add_index "admins_charities", ["user_id"], name: "index_admins_charities_on_user_id"
 
-  create_table "charity_files", force: true do |t|
-    t.integer  "charity_id"
-    t.string   "file"
+  create_table "animal_details", force: true do |t|
+    t.integer  "post_id"
+    t.string   "name"
+    t.string   "species"
+    t.string   "color"
+    t.string   "phone_no"
+    t.string   "owner"
+    t.string   "last_seen"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "charity_invite_offers", force: true do |t|
+  add_index "animal_details", ["post_id"], name: "index_animal_details_on_post_id"
+
+  create_table "charities", force: true do |t|
+    t.string   "name"
+    t.string   "domain"
     t.string   "email"
-    t.integer  "charity_id"
-    t.datetime "expires"
-    t.boolean  "accepted",   default: false
+    t.string   "passcode"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -56,22 +56,66 @@ ActiveRecord::Schema.define(version: 20140203205132) do
     t.datetime "updated_at"
   end
 
-  create_table "messages", force: true do |t|
-    t.integer  "charity_id"
+  create_table "comments", force: true do |t|
+    t.integer  "post_id"
     t.integer  "user_id"
-    t.text     "content"
+    t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "donations", force: true do |t|
+    t.integer  "charity_id"
+    t.float    "amount"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "donations", ["charity_id"], name: "index_donations_on_charity_id"
+
+  create_table "newsletter_subscriptions", force: true do |t|
+    t.integer  "charity_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "newsletter_subscriptions", ["charity_id"], name: "index_newsletter_subscriptions_on_charity_id"
+  add_index "newsletter_subscriptions", ["user_id"], name: "index_newsletter_subscriptions_on_user_id"
+
+  create_table "post_photos", force: true do |t|
+    t.integer  "post_id"
+    t.string   "photo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "post_photos", ["post_id"], name: "index_post_photos_on_post_id"
+
+  create_table "post_tags", force: true do |t|
+    t.integer  "post_id"
+    t.string   "tag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "post_tags", ["post_id"], name: "index_post_tags_on_post_id"
 
   create_table "posts", force: true do |t|
     t.integer  "charity_id"
     t.integer  "user_id"
     t.string   "title"
-    t.text     "content"
+    t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "posts", ["charity_id"], name: "index_posts_on_charity_id"
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

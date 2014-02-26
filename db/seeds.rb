@@ -13,3 +13,4 @@ user.password_confirmation = "password"
 user.save!
 Charity.create(name: "Marks Charity", domain: "lvh.me")
 AdminsCharity.create(user_id: 1, charity_id: 1)
+Post.create(charity_id: 1, user_id: 1, title:"some title", content:"some content")

@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  charity_id: 1
+  charity_id: 
+  user_id: 
   title: MyString
-  content: MyText
+  content: MyString
 
 two:
-  charity_id: 1
+  charity_id: 
+  user_id: 
   title: MyString
-  content: MyText
+  content: MyString

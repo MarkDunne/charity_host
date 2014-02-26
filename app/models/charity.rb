@@ -18,7 +18,6 @@ class Charity < ActiveRecord::Base
   private
 
   def generate_passcode
-    #TODO generate passcode
     begin
       range = [*'0'..'9', *'A'..'Z']
       self.passcode = Array.new(8){range.sample}.join

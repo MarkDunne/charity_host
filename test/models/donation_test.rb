@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PostTagsTest < ActiveSupport::TestCase
+class DonationTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

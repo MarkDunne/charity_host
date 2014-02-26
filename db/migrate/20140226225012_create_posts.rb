@@ -1,10 +1,10 @@
 class CreatePosts < ActiveRecord::Migration
   def change
     create_table :posts do |t|
-      t.integer :charity_id
-      t.integer :user_id
+      t.belongs_to :charity, index: true
+      t.belongs_to :user, index: true
       t.string :title
-      t.text :content
+      t.string :content
 
       t.timestamps
     end

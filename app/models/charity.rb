@@ -19,5 +19,9 @@ class Charity < ActiveRecord::Base
 
   def generate_passcode
     #TODO generate passcode
+    begin
+      range = [*'0'..'9', *'A'..'Z']
+      self.passcode = Array.new(8){range.sample}.join
+    end while Charity.find_by_passcode(self.passcode)    
   end
 end

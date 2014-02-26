@@ -39,7 +39,7 @@ class CharityController < ApplicationController
 
 	def add_admin
 		if User.exists?(add_user_params)
-			user = User.where(add_user_params).first #email is unique
+			user = User.find_by(add_user_params) #email is unique
 			if !user.charities.exists?(@charity)
 				CharitiesUsers.create(user_id: user.id, charity_id: @charity.id)
 				flash[:notice] = "Admin added successfully"
@@ -57,7 +57,22 @@ class CharityController < ApplicationController
 		redirect_to charity_path(@charity)
 	end
 
+	def check_passcode
+		charity = Charity.find_by(check_passcode_params)
+		if charity && user_signed_in?
+			AdminsCharity.find_or_create_by(user_id: current_user.id, charity_id: charity.id)
+			flash[:notice] = "Passcode Successful"
+		else
+			flash[:alert] = "Passcode Failed"
+		end
+		redirect_to :root
+	end
+
 	private
+
+	def check_passcode_params
+		params.require(:charity).permit(:passcode)
+	end 
 
 	def new_charity_params
 		params.require(:charity).permit(:name, :domain)

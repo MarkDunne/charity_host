@@ -21,6 +21,7 @@ CharityHost::Application.routes.draw do
   match "charity/:id/upload/:action", to: 'upload', as: "upload", via: [:get, :post]
 
   get '/charity/:id/index', to: 'charity#show'
+  post '/charity/check_passcode', to: 'charity#check_passcode'
   match '/charity/:id/:action', to: 'charity', as: 'charity', via: [:get, :post]
   resources :charity, :path => 'charity'
 

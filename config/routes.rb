@@ -3,17 +3,14 @@ CharityHost::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   get "settings/index"
   #posts  
-  get 'charity/:id/posts/new', to: "post#new" , as: "new_post"
-  post 'charity/:id/posts/create', to: "post#create" , as: "create_new_post"
-  get 'charity/:id/posts/edit/:post_id', to: "post#edit", as: "edit_post"
-  patch 'charity/:id/posts/update/:post_id', to: "post#update" , as: "update_post"
+  # get 'charity/:id/posts/new', to: "post#new" , as: "new_post"
+  # post 'charity/:id/posts/create', to: "post#create" , as: "create_new_post"
+  # get 'charity/:id/posts/edit/:post_id', to: "post#edit", as: "edit_post"
+  # patch 'charity/:id/posts/update/:post_id', to: "post#update" , as: "update_post"
 
   #appearance
   match "charity/:id/appearance/:action", to: 'appearance', as: "appearance", via: [:get, :patch]
  
-  #communication
-  match "charity/:id/communication/:action", to: 'communication', as: "communication", via: [:get, :post]
-  
   #settings
   match "charity/:id/settings/:action", to: 'settings', as: "settings", via: [:get, :patch]
 
@@ -24,7 +21,10 @@ CharityHost::Application.routes.draw do
   get '/charity/:id/index', to: 'charity#show'
   post '/charity/check_passcode', to: 'charity#check_passcode'
   match '/charity/:id/:action', to: 'charity', as: 'charity', via: [:get, :post]
-  resources :charity, :path => 'charity'
+
+  resources :charity, :path => 'charity' do
+    resources :post
+  end
 
   devise_for :users
   root :to => 'home#index'

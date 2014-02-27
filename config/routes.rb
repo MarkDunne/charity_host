@@ -8,6 +8,14 @@ CharityHost::Application.routes.draw do
   # get 'charity/:id/posts/edit/:post_id', to: "post#edit", as: "edit_post"
   # patch 'charity/:id/posts/update/:post_id', to: "post#update" , as: "update_post"
 
+  #post
+  get "charity/:id/post/new", to: 'post#new'
+  match "charity/:id/post/:post_id/:action", to: 'post', as: "post", via: [:get, :patch, :delete]
+
+  #comment
+  match "charity/:id/post/:post_id/comment/:comment_id/:action", to: 'comment', as: "comment", via: [:get, :patch, :delete]
+
+  
   #appearance
   match "charity/:id/appearance/:action", to: 'appearance', as: "appearance", via: [:get, :patch]
  
@@ -22,9 +30,7 @@ CharityHost::Application.routes.draw do
   post '/charity/check_passcode', to: 'charity#check_passcode'
   match '/charity/:id/:action', to: 'charity', as: 'charity', via: [:get, :post]
 
-  resources :charity, :path => 'charity' do
-    resources :post
-  end
+  resources :charity, :path => 'charity'
 
   devise_for :users
   root :to => 'home#index'

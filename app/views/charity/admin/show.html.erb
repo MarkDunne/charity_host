@@ -26,7 +26,7 @@
 				<span><%= post.title %></span>
 				<span class="list-right">
 					<span class="list-time"><%= post.created_at.strftime("%m/%d/%Y") %></span>
-					<a href="#"><%= image_tag 'glyphicons_150_edit.png', :class => "edit", alt: "Edit" %></a>
+					<a href="<%= post_path(@charity, post, :edit) %>"><%= image_tag 'glyphicons_150_edit.png', :class => "edit", alt: "Edit" %></a>
 					<a href="#"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
 				</span>
 			</li>

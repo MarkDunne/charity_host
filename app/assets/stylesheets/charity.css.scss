@@ -59,8 +59,8 @@ nav{
 		}
 		li a{
 			// padding-left: 35px;
-			text-decoration: none;
-			color: $c4;
+			text-decoration: none !important;
+			color: $c4 !important;
 		}
 		li a:hover{
 			background-color: rgba(255, 255, 255, 0.1);

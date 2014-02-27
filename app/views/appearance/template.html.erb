@@ -1,11 +1,19 @@
-<h1>Appearance#template</h1>
+<% content_for :page_title do %>
+	Changing Base Template
+<% end %>
+
+<h3>Choose Base Template</h3>
 
 <%= form_for @charity.settings, url: appearance_path(@charity.id, :update_template) do |f| %>
+<ul>
+<li>
 	<%= f.label(:base_template_child, "Default") %>
 	<%= f.radio_button(:base_template, "charity/default") %>
-
+</li>
+<li>
 	<%= f.label(:base_template_adult, "Template 1") %>
 	<%= f.radio_button(:base_template, "charity/template1") %>
-
+</li>
+</ul>
 	<%= f.submit "Set Template" %>
 <% end %>

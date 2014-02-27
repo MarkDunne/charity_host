@@ -15,7 +15,6 @@ CharityHost::Application.routes.draw do
   #comment
   match "charity/:id/post/:post_id/comment/:comment_id/:action", to: 'comment', as: "comment", via: [:get, :patch, :delete]
 
-  
   #appearance
   match "charity/:id/appearance/:action", to: 'appearance', as: "appearance", via: [:get, :patch]
  

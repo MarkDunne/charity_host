@@ -24,7 +24,7 @@ class CharityController < ApplicationController
 			flash[:alert] = "You must be signed in to create a charity"
 		else
 			@charity = Charity.new(new_charity_params)
-			if @charity.save && CharitiesUsers.create(user_id: current_user.id, charity_id: @charity.id)
+			if @charity.save && AdminsCharity.create(user_id: current_user.id, charity_id: @charity.id)
 				flash[:notice] = 'Charity created successfully'
 			else
 				flash[:alert] = 'Error while creating charity'
@@ -41,7 +41,7 @@ class CharityController < ApplicationController
 		if User.exists?(add_user_params)
 			user = User.find_by(add_user_params) #email is unique
 			if !user.charities.exists?(@charity)
-				CharitiesUsers.create(user_id: user.id, charity_id: @charity.id)
+				AdminsCharity.create(user_id: user.id, charity_id: @charity.id)
 				flash[:notice] = "Admin added successfully"
 			else
 				flash[:alert] = "Error adding admin"
@@ -89,9 +89,6 @@ class CharityController < ApplicationController
 	def choose_layout
 		if @is_rendering_charity
 			self.class.layout @settings.base_template
-		else
-			self.class.layout 'admin'
 		end
 	end
-
 end

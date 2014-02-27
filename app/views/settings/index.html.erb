@@ -1,4 +1,8 @@
-<h1>Settings#index</h1>
+<% content_for :page_title do %>
+	Charity Settings
+<% end %>
+
+<h3>Donation Settings</h3>
 
 <%= form_for @charity.settings, url: settings_path(@charity.id, :update_settings) do |f| %>
 

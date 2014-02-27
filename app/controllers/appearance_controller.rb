@@ -1,7 +1,7 @@
 class AppearanceController < ApplicationController
   def update_template
   	@charity.settings.update(update_appearance_params)
-  	redirect_to appearance_path(@charity.id)
+  	redirect_to charity_path(@charity)
   end
 
   private

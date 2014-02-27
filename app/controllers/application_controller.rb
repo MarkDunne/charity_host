@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+
   protect_from_forgery with: :exception
   helper_method :resource, :resource_name, :devise_mapping
   before_filter :check_if_rendering_charity
@@ -15,7 +16,8 @@ class ApplicationController < ActionController::Base
       #makes sure the user has access && gets charity
       if user_signed_in?
         @charity = current_user.managed_charities.find_by_id(params[:id])
-        @is_admin = true       
+        @is_admin = true  
+        self.class.layout 'admin'     
       end
     end
   end

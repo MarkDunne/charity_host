@@ -1,6 +1,8 @@
-<h1>Configure Appearance</h1>
+<% content_for :page_title do %>
+	Configure Appearance
+<% end %>
 
-<p>Change text color</p>
+<h3>Change text color</h3>
 <%= form_for @charity.settings, url: appearance_path(@charity.id, :update_template) do |f| %>
 	<%= f.label :text_color, "Text Color" %>
 	<%= f.text_field :text_color %>

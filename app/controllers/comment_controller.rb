@@ -9,6 +9,7 @@ class CommentController < ApplicationController
 
 	def destroy
 		@comment.delete
+		redirect_to post_path(@charity, @comment.post, :edit)
 	end
 
 	private

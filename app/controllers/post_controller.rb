@@ -1,7 +1,7 @@
 class PostController < ApplicationController
 
   layout 'admin'
-  before_filter :find_post, :only => [:edit, :update]
+  before_filter :find_post, :only => [:edit, :update, :destroy]
 
   def show
     @post = @charity.posts.find(params[:post_id])
@@ -30,6 +30,11 @@ class PostController < ApplicationController
     @post.update_attributes(new_post_params)
     @post.save
     redirect_to charity_path(@charity, :posts)
+  end
+
+  def destroy
+    @post.delete
+    redirect_to charity_path(@charity, :show)
   end
 
 	private

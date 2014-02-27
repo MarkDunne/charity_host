@@ -26,7 +26,7 @@
 				<span class="list-right">
 					<span class="list-time"><%= comment.created_at.strftime("%m/%d/%Y") %></span>
 					<a href="<%= comment_path(@charity, @post, comment, :show) %>"><%= image_tag 'glyphicons_150_edit.png', :class => "edit", alt: "Show" %></a>
-					<a href="#"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
+					<a href="<%= comment_path(@charity, @post, comment, :destroy) %>"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
 				</span>
 			</li>
 		<% end %>

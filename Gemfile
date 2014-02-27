@@ -38,6 +38,8 @@ gem 'carrierwave'
 
 gem 'thin'
 
+gem 'rails_admin'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -1,5 +1,6 @@
 CharityHost::Application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   get "settings/index"
   #posts  
   get 'charity/:id/posts/new', to: "post#new" , as: "new_post"

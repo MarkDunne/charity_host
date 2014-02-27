@@ -3,9 +3,9 @@
 <% end %>
 
 <div class="page-section">
-	<h3>Patron Posts</h3>
+	<h3>User Posts</h3>
 	<ul>
-		<% @charity.posts.each do |post| %>
+		<% @charity.posts.select{|p| !p.author.admin_of @charity}.each do |post| %>
 			<li>
 				<span><%= post.title %></span>
 				<span class="list-right">
@@ -19,15 +19,15 @@
 </div>
 
 <div class="page-section">
-	<h3>Posts</h3>
+	<h3>Admin Posts</h3>
 	<ul>
-		<% @charity.posts.each do |post| %>
+		<% @charity.posts.select{|p| p.author.admin_of @charity}.each do |post| %>
 			<li>
 				<span><%= post.title %></span>
 				<span class="list-right">
 					<span class="list-time"><%= post.created_at.strftime("%m/%d/%Y") %></span>
-					<a href="#"><%= image_tag 'glyphicons_150_edit.png', :class => "edit", alt: "Edit" %></a>
-					<a href="#"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
+					<a href="<%= post_path(@charity, post, :edit) %>"><%= image_tag 'glyphicons_150_edit.png', :class => "edit", alt: "Edit" %></a>
+					<a href="<%= post_path(@charity, post, :destroy) %>"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
 				</span>
 			</li>
 		<% end %>

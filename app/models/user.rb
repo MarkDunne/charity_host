@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
   has_many :newsletter_subscriptions
+
+  def is_admin_of (charity)
+    managed_charities.exists?(charity)
+  end
 end

@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   helper_method :resource, :resource_name, :devise_mapping
   before_filter :check_if_rendering_charity
 
-
   def check_if_rendering_charity
     @is_rendering_charity = false
     @charity = Charity.find_by_domain(request.host)
@@ -15,7 +14,8 @@ class ApplicationController < ActionController::Base
     else
       #makes sure the user has access && gets charity
       if user_signed_in?
-        @charity = current_user.managed_charities.find_by_id(params[:id])        
+        @charity = current_user.managed_charities.find_by_id(params[:id])
+        @is_admin = true       
       end
     end
   end
@@ -35,5 +35,9 @@ class ApplicationController < ActionController::Base
 
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
+  end
+
+  def is_admin?
+    @is_admin
   end
 end

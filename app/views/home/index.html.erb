@@ -6,10 +6,7 @@
 	<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
 	<%= render partial: "charity/admin/registrations/new" %>	
 
-
-	<div class="spacer"></div>
-
-	<p>Change text color</p>
+	<h3>Enter Charity Passcode</h3>
 	<%= form_for :charity, url: '/charity/check_passcode' do |f| %>
 		<%= f.label :passcode, "Passcode" %>
 		<%= f.text_field :passcode %>
@@ -18,8 +15,7 @@
 
 	<% end %>
 
-	<div class="spacer"></div>
-
+	<h3>Managed Charities</h3>
 	<% current_user.managed_charities.each do |charity| %>
 		<p><%= link_to charity.name, charity %></p>
 	<% end %>

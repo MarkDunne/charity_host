@@ -4,5 +4,19 @@
 
 <div class="page-section">
 	<h3>Charity Passcode</h3>
-	<%= @charity.passcode %>
+	<p id="passcode"><%= @charity.passcode %></p>
+</div>
+
+<div class="page-section">
+	<h3>Current Admins</h3>
+	<ul>
+		<% @charity.admins.each do |admin| %>
+			<li>
+				<span><%= admin.email %></span>
+				<span class="list-right">
+					<a href="#"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
+				</span>
+			</li>
+		<% end %>
+	</ul>
 </div>

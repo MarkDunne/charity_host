@@ -3,21 +3,32 @@
 <% if !user_signed_in? %>
 	<%= render partial: "devise/shared/links" %>
 <% else %>
+	<div class="page-section">
 	<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
 	<%= render partial: "charity/admin/registrations/new" %>	
+	</div>
 
-	<h3>Enter Charity Passcode</h3>
-	<%= form_for :charity, url: '/charity/check_passcode' do |f| %>
-		<%= f.label :passcode, "Passcode" %>
-		<%= f.text_field :passcode %>
+	<div class="spacer"></div>
 
-		<%= f.submit "Enter" %>
+	<div class="page-section">
 
-	<% end %>
+		<h3>Enter Charity Passcode</h3>
+		<%= form_for :charity, url: '/charity/check_passcode' do |f| %>
+			<%= f.label :passcode, "Passcode" %>
+			<%= f.text_field :passcode %>
 
-	<h3>Managed Charities</h3>
-	<% current_user.managed_charities.each do |charity| %>
-		<p><%= link_to charity.name, charity %></p>
-	<% end %>
+			<%= f.submit "Enter" %>
+
+		<% end %>
+	</div>
+
+	<div class="spacer"></div>
+
+	<div class="page-section">
+		<h3>Managed Charities</h3>
+		<% current_user.managed_charities.each do |charity| %>
+			<p><%= link_to charity.name, charity %></p>
+		<% end %>
+	</div>
 
 <% end %>

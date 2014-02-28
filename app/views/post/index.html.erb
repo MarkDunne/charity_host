@@ -1,0 +1,22 @@
+<% content_for :page_title do %>
+  Post Index
+<% end %>
+
+<div class="page-section">
+	<h3>Posts</h3>
+	<ul>
+		<% @posts.each do |post| %>
+			<li>
+				<span><%= post.title %></span>
+				<span class="list-right">
+					<span>
+						[<%= post.post_tags.map{|t| t.tag}.join(", ") %>]
+					</span>
+					<span class="list-time"><%= post.created_at.strftime("%m/%d/%Y") %></span>
+					<a href="<%= post_path(@charity, post, :edit) %>"><%= image_tag 'glyphicons_150_edit.png', :class => "edit", alt: "Edit" %></a>
+					<a href="<%= post_path(@charity, post, :destroy) %>"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
+				</span>
+			</li>
+		<% end %>
+	</ul>
+</div>

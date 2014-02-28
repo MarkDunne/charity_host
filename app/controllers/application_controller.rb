@@ -16,8 +16,7 @@ class ApplicationController < ActionController::Base
       #makes sure the user has access && gets charity
       if user_signed_in?
         @charity = current_user.managed_charities.find_by_id(params[:id])
-        @is_admin = true  
-        self.class.layout 'admin'     
+        @is_admin = true     
       end
     end
   end

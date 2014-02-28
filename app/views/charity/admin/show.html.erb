@@ -2,6 +2,40 @@
   Recent Activity
 <% end %>
 
+
+<h3>Create Post</h3>
+<%= form_for :post, :url => {:controller => "post", :action => "create"}, :class => 'form' do |f| %>
+  <div class="form-group">
+  	<%= f.label :title %>
+	<%= f.text_field :title, :autofocus => true, class: 'form-control' %></div>
+  <div class="form-group">
+  	<%= f.label :content %>
+	<%= f.text_area :content, class: 'form-control' %></div>
+  <div class="form-group">
+   	<%= f.label :tags %>
+	<%= f.text_field :tags, class: 'form-control' %></div>
+  <div><%= f.submit "Create Post" %></div>
+<% end %>
+
+<div class="page-section">
+	<h3>Admin Posts</h3>
+	<ul>
+		<% @charity.posts.select{|p| p.author.admin_of @charity}.each do |post| %>
+			<li>
+				<span><%= post.title %></span>
+				<span class="list-right">
+					<span>
+						[<%= post.post_tags.map{|t| t.tag}.join(", ") %>]
+					</span>
+					<span class="list-time"><%= post.created_at.strftime("%m/%d/%Y") %></span>
+					<a href="<%= post_path(@charity, post, :edit) %>"><%= image_tag 'glyphicons_150_edit.png', :class => "edit", alt: "Edit" %></a>
+					<a href="<%= post_path(@charity, post, :destroy) %>"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
+				</span>
+			</li>
+		<% end %>
+	</ul>
+</div>
+
 <div class="page-section">
 	<h3>User Posts</h3>
 	<ul>
@@ -12,22 +46,6 @@
 					<span class="list-time"><%= post.created_at.strftime("%m/%d/%Y") %></span>
 					<a href="#"><%= image_tag 'glyphicons_150_edit.png', :class => "edit", alt: "Edit" %></a>
 					<a href="#"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
-				</span>
-			</li>
-		<% end %>
-	</ul>
-</div>
-
-<div class="page-section">
-	<h3>Admin Posts</h3>
-	<ul>
-		<% @charity.posts.select{|p| p.author.admin_of @charity}.each do |post| %>
-			<li>
-				<span><%= post.title %></span>
-				<span class="list-right">
-					<span class="list-time"><%= post.created_at.strftime("%m/%d/%Y") %></span>
-					<a href="<%= post_path(@charity, post, :edit) %>"><%= image_tag 'glyphicons_150_edit.png', :class => "edit", alt: "Edit" %></a>
-					<a href="<%= post_path(@charity, post, :destroy) %>"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
 				</span>
 			</li>
 		<% end %>

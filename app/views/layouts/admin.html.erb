@@ -20,7 +20,8 @@
 	<h1><%= @charity.name %></h1>
 	<ul>
 
-		<li><a href=<%= charity_path %>>Home</a></li>
+		<li><a href="http://<%= @charity.domain %>">Preview</a></li>
+		<li><a href="<%= charity_path %>">Home</a></li>
 		<li class="category"><span>Appearance</span></li>
 		<li><a href="<%= appearance_path(@charity, :template) %>">Change Base Template</a></li>
 		<li><a href="<%= appearance_path(@charity, :configure_template) %>">Configure Template</a></li>
@@ -29,13 +30,19 @@
 		<li><a href="<%= settings_path(@charity, :index) %>">Configure Donations</a></li>
 		<li><a href="<%= settings_path(@charity, :index) %>">Configure Paypal</a></li>
 		<li><a href="<%= charity_path(@charity, :manage_admins) %>">Manage Admins</a></li>
+
+		<li class="category"><span>Posts</span></li>
+		<li><a href="<%= post_index_path(@charity) %>">All Posts</a></li>
+		<% PostTag.uniq.pluck(:tag).each do |tag|%>
+			<li><a href="<%= post_index_path(@charity) %>?tag=<%=tag%>"><%= tag.capitalize %></a></li>
+		<% end %>
 	</ul>
 </nav>
 
 <div id="main">
 <div id="topbar">
 	<h2><%= yield :page_title %></h2>
-	<span><%= current_user.email %><a href=""><%= image_tag 'glyphicons_136_cogwheel.png', :class => "settings", alt: 'Settings' %></a></span>
+	<span><%= current_user.email %><a href="<%= edit_user_registration_path %>"><%= image_tag 'glyphicons_136_cogwheel.png', :class => "settings", alt: 'Settings' %></a></span>
 </div>
 	<%= yield %>
 </div>

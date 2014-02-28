@@ -9,7 +9,8 @@ CharityHost::Application.routes.draw do
   # patch 'charity/:id/posts/update/:post_id', to: "post#update" , as: "update_post"
 
   #post
-  get "charity/:id/post/new", to: 'post#new'
+  get "charity/:id/post/index", to: 'post#index', as: 'post_index'
+  post "charity/:id/post/create", to: 'post#create'
   match "charity/:id/post/:post_id/:action", to: 'post', as: "post", via: [:get, :patch, :delete]
 
   #comment

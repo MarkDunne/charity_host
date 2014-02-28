@@ -48,6 +48,10 @@ nav{
 	ul{
 		list-style: none;
 		padding: 0;
+
+		.preview{
+			background-color: #DA0734;
+		}
 		li{
 			margin-bottom: 12px;
 			font-size: 16px;
@@ -106,6 +110,11 @@ nav{
 			}
 		}
 	}
+
+	form{
+		margin-right: 50px;
+	}
+
 	div.page-section{
 		margin-bottom: 50px;
 		h3{

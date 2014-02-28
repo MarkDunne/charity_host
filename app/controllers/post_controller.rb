@@ -7,17 +7,13 @@ class PostController < ApplicationController
     @post = @charity.posts.find(params[:post_id])
   end
 
-  def new
-    
-  end
-
   def create
 		post = @charity.posts.new(new_post_params)
-    post.user = current_user
+    post.author = current_user
 		if post.save
 			flash[:notice] = "Post created successfully"
 		else
-			flash[:alert] = "Error creating post"
+			flash[:error] = "Error creating post"
 		end
   	redirect_to charity_path(@charity, :posts)
   end

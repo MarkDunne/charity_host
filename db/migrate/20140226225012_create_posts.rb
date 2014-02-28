@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.belongs_to :charity, index: true
       t.belongs_to :user, index: true
       t.string :title
-      t.string :content
+      t.text :content
 
       t.timestamps
     end

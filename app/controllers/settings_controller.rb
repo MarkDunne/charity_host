@@ -1,4 +1,7 @@
 class SettingsController < ApplicationController
+
+  layout 'admin'
+
   def update_settings
   	@charity.settings.update(update_settings_params)
   	redirect_to charity_path

@@ -89,6 +89,8 @@ class CharityController < ApplicationController
 	def choose_layout
 		if @is_rendering_charity
 			self.class.layout @settings.base_template
+		else
+			self.class.layout 'admin'
 		end
 	end
 end

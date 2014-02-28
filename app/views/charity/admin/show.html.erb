@@ -4,13 +4,16 @@
 
 
 <h3>Create Post</h3>
-<%= form_for :post, :url => {:controller => "post", :action => "create"} do |f| %>
-  <div><%= f.label :title %>
-  <%= f.text_field :title, :autofocus => true %></div>
-  <div><%= f.label :content %>
-  <%= f.text_area :content %></div>
-    <div><%= f.label :tags %>
-  <%= f.text_field :tags %></div>
+<%= form_for :post, :url => {:controller => "post", :action => "create"}, :class => 'form' do |f| %>
+  <div class="form-group">
+  	<%= f.label :title %>
+	<%= f.text_field :title, :autofocus => true, class: 'form-control' %></div>
+  <div class="form-group">
+  	<%= f.label :content %>
+	<%= f.text_area :content, class: 'form-control' %></div>
+  <div class="form-group">
+   	<%= f.label :tags %>
+	<%= f.text_field :tags, class: 'form-control' %></div>
   <div><%= f.submit "Create Post" %></div>
 <% end %>
 

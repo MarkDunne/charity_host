@@ -33,7 +33,9 @@
 
 		<li class="category"><span>Posts</span></li>
 		<li><a href="<%= post_index_path(@charity) %>">All Posts</a></li>
-		<% PostTag.uniq.pluck(:tag).each do |tag|%>
+
+		
+		<% @charity.posts.map{|p| p.tags}.flatten.map{|t| t.tag}.uniq.each do |tag|%>
 			<li><a href="<%= post_index_path(@charity) %>?tag=<%=tag%>"><%= tag.capitalize %></a></li>
 		<% end %>
 	</ul>

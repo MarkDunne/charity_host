@@ -15,8 +15,6 @@ class Charity < ActiveRecord::Base
 	before_create :build_settings
   before_create :generate_passcode
 
-  private
-
   def generate_passcode
     begin
       range = [*'0'..'9', *'A'..'Z']

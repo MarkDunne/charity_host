@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
   def admin_of (charity)
     managed_charities.exists?(charity)
   end
+
+  def is_superadmin?
+    self.superadmin
+  end
 end

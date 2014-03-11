@@ -10,6 +10,7 @@ user = User.new
 user.email = "mark@gmail.com"
 user.password = "password"
 user.password_confirmation = "password"
+user.superadmin = true
 user.save!
 Charity.create(name: "Marks Charity", domain: "lvh.me")
 AdminsCharity.create(user_id: 1, charity_id: 1)

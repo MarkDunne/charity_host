@@ -5,6 +5,7 @@ class CreateCharities < ActiveRecord::Migration
       t.string :domain
       t.string :email
       t.string :passcode
+      t.boolean :verified, default: false
       t.timestamps
     end
   end

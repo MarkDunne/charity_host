@@ -1,0 +1,107 @@
+<h3>Create Post</h3>
+<%= form_for :post, :url => {:controller => "post", :action => "create"}, :class => 'form' do |f| %>
+  <div class="form-group">
+  	<%= f.label :title %>
+	<%= f.text_field :title, :autofocus => true, class: 'form-control' %></div>
+
+  <ul id="wysihtml5-toolbar" style="">
+    <li class="dropdown">
+      <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href=
+      "#">&nbsp;<span class="current-font">Normal text</span>&nbsp;</a>
+
+      <ul class="dropdown-menu">
+        <li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="div">Normal text</a></li>
+        <li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1">Heading 1</a></li>
+        <li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2">Heading 2</a></li>
+        <li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h3">Heading 3</a></li>
+        <li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h4">Heading 4</a></li>
+        <li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h5">Heading 5</a></li>
+        <li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h6">Heading 6</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <div class="btn-group">
+        <a class="btn btn-default btn-sm wysihtml5-command-active" data-wysihtml5-command="bold" title=
+        "CTRL+B" tabindex="-1" href="javascript:;" unselectable="on">Bold</a><a class=
+        "btn" data-wysihtml5-command="italic" title="CTRL+I" tabindex="-1" href=
+        "javascript:;" unselectable="on">Italic</a><a class="btn" data-wysihtml5-command=
+        "underline" title="CTRL+U" tabindex="-1" href="javascript:;" unselectable=
+        "on">Underline</a>
+      </div>
+    </li>
+
+    <li>
+      <div class="btn-group">
+        <a class="btn" data-wysihtml5-command="insertUnorderedList" title=
+        "Unordered list" tabindex="-1" href="javascript:;" unselectable=
+        "on"></a><a class="btn" data-wysihtml5-command="insertOrderedList" title=
+        "Ordered list" tabindex="-1" href="javascript:;" unselectable="on"></a><a class=
+        "btn" data-wysihtml5-command="Outdent" title="Outdent" tabindex="-1" href=
+        "javascript:;" unselectable="on"></a><a class="btn" data-wysihtml5-command=
+        "Indent" title="Indent" tabindex="-1" href="javascript:;" unselectable="on"></a>
+      </div>
+    </li>
+
+    <li>
+      <div class="bootstrap-wysihtml5-insert-link-modal modal hide fade">
+        <div class="modal-header">
+          <a class="close" data-dismiss="modal">&times;</a>
+
+          <h3>Insert link</h3>
+        </div>
+
+        <div class="modal-body">
+          <input value="http://" class=
+          "bootstrap-wysihtml5-insert-link-url input-xlarge" /> <label class=
+          "checkbox"><input type="checkbox" class=
+          "bootstrap-wysihtml5-insert-link-target" checked="checked" />Open link in new
+          window</label>
+        </div>
+
+        <div class="modal-footer">
+          <a href="#" class="btn" data-dismiss="modal">Cancel</a><a href="#" class=
+          "btn btn-primary" data-dismiss="modal">Insert link</a>
+        </div>
+      </div><a class="btn" data-wysihtml5-command="createLink" title="Insert link"
+      tabindex="-1" href="javascript:;" unselectable="on"></a>
+    </li>
+
+    <li>
+      <div class="bootstrap-wysihtml5-insert-image-modal modal hide fade">
+        <div class="modal-header">
+          <a class="close" data-dismiss="modal">&times;</a>
+
+          <h3>Insert image</h3>
+        </div>
+
+        <div class="modal-body">
+          <input value="http://" class=
+          "bootstrap-wysihtml5-insert-image-url input-xlarge" />
+        </div>
+
+        <div class="modal-footer">
+          <a href="#" class="btn" data-dismiss="modal">Cancel</a><a href="#" class=
+          "btn btn-primary" data-dismiss="modal">Insert image</a>
+        </div>
+      </div><a class="btn" data-wysihtml5-command="insertImage" title="Insert image"
+      tabindex="-1" href="javascript:;" unselectable="on"></a>
+    </li>
+  </ul>
+
+  <div class="form-group">
+  	<%= f.label :content %>
+	<%= f.text_area :content, id: 'wysihtml5-textarea', class: 'form-control' %></div>
+  <div class="form-group">
+   	<%= f.label :tags %>
+	<%= f.text_field :tags, class: 'form-control' %></div>
+  <div><%= f.submit "Create Post" %></div>
+<% end %>
+
+<script>
+  var editor = new wysihtml5.Editor("wysihtml5-textarea", {
+    toolbar:      "wysihtml5-toolbar",
+    stylesheets:  "<%= stylesheet_path('wysiwyg') %>",
+    parserRules:  wysihtml5ParserRules
+  });
+</script>

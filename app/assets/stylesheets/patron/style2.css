@@ -1,3 +1,5 @@
+/* 2 column  layout, fixed nav */
+
 html, body {
 	color: #000;
  	background: #fff;
@@ -13,10 +15,16 @@ html, body, p,li{
 	font: 1em Arial, Helvetica, sans-serif;
 }
 
+/* START NAV MENU 
+   Not stuck to top of page
+
+*/
 nav {
   background-color:#000;
   height:40px;
   width:100%;
+  position:fixed;
+  z-index:20;
 }
  
  
@@ -80,7 +88,16 @@ nav > li:hover > li a:hover {
 }
 
 h1{
-	text-align:center;
+  text-align: center;
+}
+
+#content{
+	float:left;
+	width:60%;
+}	
+
+#rhs{
+	margin-left:63.33%;
 }
 
 div > ul{
@@ -93,27 +110,91 @@ div > h2{
   text-align:center;
 }
 
+div > p{
+  padding:10;
+}
+
+ul > div > li{
+  padding:5;
+}
+
+ul > li.item{
+	width:100%;
+	background:#55d;
+	height:30px;
+	padding:8;
+	color:white;
+}
+
+.item > a{
+	color:white;
+	text-decoration:none;
+}
+
+.item:last-child{
+	border-bottom-right-radius:8;
+	border-bottom-left-radius:8;
+}
+
+.item:first-child{
+	border-top-right-radius:8;
+	border-top-left-radius:8;
+}
+
+.badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  background-color: #999;
+  border-radius: 10px;
+  float:right;
+}
+
 .container{
-	margin-left:auto;
-	margin-right:auto;
-	padding-top:5%;
-	width:90%;
+  width:90%;
+  margin-left:auto;
+  margin-right:auto;
+  padding-top:5%;
 }
 
-#content{
-	width:100%;
+.jumbotron {
+  padding: 30px;
+  margin-bottom: 30px;
+  margin-left:auto;
+  margin-right:auto;
+  color: inherit;
+  background-color: #eee;
+  border-radius: 6px;
+  padding-bottom: 48px;
+  padding-right: 60px;
+  padding-left: 60px;
 }
 
-#rhs{
-	width:100%;
-	margin-top:5%;
+.date{
+  margin-left:50%;
+  font-weight:normal;
 }
 
 .post{
   margin-top:40px;
-  margin-left:auto;
-  margin-right:auto;
-  width:80%;
+  width:50%;
+  border: 1px solid red;
+}
+
+.post:nth-of-type(2n+1){
+  float:left;
+}
+
+.post:nth-of-type(2n){
+  margin-left:50%;
+  border:1px solid blue;
 }
 
 .comment_button{
@@ -131,22 +212,12 @@ div > h2{
   border-radius:8;
 }
 
-.jumbotron {
-  padding: 30px;
-  margin-bottom: 30px;
-  margin-left:auto;
-  margin-right:auto;
-  color: inherit;
-  background-color: #eee;
-  border-radius: 6px;
-  padding-bottom: 48px;
-  padding-right: 60px;
-  padding-left: 60px;
-}
-
-.date{
-  margin-left:65%;
-  font-weight:normal;
+.timestamp{
+  float:left;
+  clear:both;
+  margin-bottom:0;
+  padding-left:5;
+  padding-top:0;
 }
 
 .login{
@@ -161,11 +232,4 @@ div > h2{
   border: 1px gray solid;
   font-family: Tahoma, sans-serif;
   border-radius: 8;
-}
-
-input:last-child{
-  margin-top:10;
-  padding:1em;
-  height:50;
-  background:#069;
 }

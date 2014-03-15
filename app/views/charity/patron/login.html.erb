@@ -1,6 +1,7 @@
 <h2>Sign in!</h2>
-<form class="login" role="form" action="checklogin">
-	<input type="text"id="email" placeholder="Email">
-	<input type="password" id="password" placeholder="Password">
-	<input type="submit" value="Login">
-</form>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name),  html: {class: "login"}) do |f| %>
+  <%= f.email_field :email, :autofocus => true %>
+  <%= f.password_field :password %>
+  <%= f.submit "Sign in" %>
+<% end %>

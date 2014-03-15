@@ -1,4 +1,4 @@
-class AppearanceController < ApplicationController
+class AppearanceController < RedirectController
 
   layout 'admin'
 

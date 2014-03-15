@@ -93,10 +93,6 @@ class CharityController < ApplicationController
 		params.require(:user).permit(:email)
 	end 
 
-	def redirect_to_charity
-		#disable redirects on charity controller
-	end
-
 	def choose_layout
 		if @is_rendering_charity
 			@settings = @charity.settings

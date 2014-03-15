@@ -1,4 +1,4 @@
-class PostController < ApplicationController
+class PostController < RedirectController
 
   layout 'admin'
   before_filter :find_post, :only => [:edit, :update, :destroy]

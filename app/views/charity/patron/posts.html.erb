@@ -1,1 +1,31 @@
-<%= render partial: 'charity/shared/post_list' %>
+<h1>Posts</h1>
+
+<% @charity.admin_posts.each do |post| %>
+	<div class="post">
+		<h3><%= post.title %><span class="date"><%= post.created_at.strftime("%m/%d/%Y")%></span></h3>
+		<p><%= post.content %></p>
+
+		<ul>
+			<a href="javascript:toggle('<%= post.id %>');" class="comment_button">Comments</a></li>
+			<div id="<%= post.id %>" class="comments" style="display:none">
+				<% post.comments.each do |comment| %>
+					<li><b><%= comment.user.email %></b><%= comment.content %></li>
+					<span  class="timestamp"><%= comment.created_at.strftime("%m/%d/%Y")%></span>
+					<br/>
+				<% end %>
+			</div>
+		</ul>
+	</div>
+<% end %>
+
+<script type="text/javascript">
+	function toggle(obj) {
+		var el = document.getElementById(obj);
+		if ( el.style.display != 'none' ) {
+			el.style.display = 'none';
+		}
+		else {
+			el.style.display = '';
+		}
+	}
+</script>

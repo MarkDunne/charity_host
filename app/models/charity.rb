@@ -21,4 +21,12 @@ class Charity < ActiveRecord::Base
       self.passcode = Array.new(8){range.sample}.join
     end while Charity.find_by_passcode(self.passcode)    
   end
+
+  def admin_posts
+    posts.select{|p| p.author.admin_of self}
+  end
+
+  def user_posts
+    posts.select{|p| !p.author.admin_of self}
+  end
 end

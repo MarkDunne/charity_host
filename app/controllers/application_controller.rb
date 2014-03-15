@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_to_charity
-    redirect_to charity_path(@charity)
+    #redirects disabled by default
   end
 
   #for devise forms

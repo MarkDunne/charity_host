@@ -1,4 +1,4 @@
-class CommentController < ApplicationController
+class CommentController < RedirectController
 	
 	layout 'admin'
 	before_filter :find_comment, :only => [:show, :destroy]

@@ -1,0 +1,115 @@
+<h3>Create Post</h3>
+<%= form_for :post, :url => {:controller => "post", :action => "create"}, :class => 'form' do |f| %>
+  <div class="form-group">
+  	<%= f.label :title %>
+	<%= f.text_field :title, :autofocus => true, class: 'form-control' %></div>
+  <div class="form-group">
+
+  <%= f.label :content %>
+<div id="wysihtml5-toolbar" class="btn-toolbar">
+	<div class="btn-group">
+	  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+	    Text Size <span class="caret"></span>
+	  </button>
+      <ul class="dropdown-menu">
+        <li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="div">Normal text</a></li>
+        <li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1">Heading 1</a></li>
+        <li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2">Heading 2</a></li>
+        <li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h3">Heading 3</a></li>
+        <li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h4">Heading 4</a></li>
+        <li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h5">Heading 5</a></li>
+        <li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h6">Heading 6</a></li>
+      </ul>
+	</div>
+
+	<div class="btn-group">
+		<button class="btn btn-default" data-wysihtml5-command="bold" title="CTRL+B" >Bold</a>
+		<button class="btn btn-default" data-wysihtml5-command="italic" title="CTRL+I" >Italic</a>
+		<button class="btn btn-default" data-wysihtml5-command="underline" title="CTRL+U">Underline</a>
+	</div>
+
+    <div class="btn-group">     
+        <button class="btn btn-default" data-wysihtml5-command="insertOrderedList" title="Ordered list"><span class="glyphicon glyphicon-list"></span></button>
+    </div>
+    <div class="btn-group">  
+        <button class="btn btn-default" data-wysihtml5-command="Outdent" title="Outdent"><span class="glyphicon glyphicon-indent-left"></span></button>
+        <button class="btn btn-default" data-wysihtml5-command="Indent" title="Indent" unselectable="on"><span class="glyphicon glyphicon-indent-right"></span></button>
+  	</div>
+
+  	<div class="btn-group">
+  		<button class="btn btn-default" data-wysihtml5-command="justifyLeft">
+  			<span class="glyphicon glyphicon-align-left"></span>
+  		</button>
+  		 <button class="btn btn-default" data-wysihtml5-command="justifyCenter">
+  			<span class="glyphicon glyphicon-align-center"></span>
+  		</button>
+  		 <button class="btn btn-default" data-wysihtml5-command="justifyRight">
+  			<span class="glyphicon glyphicon-align-right"></span>
+  		</button>
+  	</div>
+
+	<div class="btn-group">
+ 		<a class="btn btn-default" data-wysihtml5-command="createLink">Insert Link</a>
+ 		<a class="btn btn-default" data-wysihtml5-command="insertImage">Insert Image</a>
+	</div>
+
+	<div class="btn-group form-popup"data-wysihtml5-dialog="createLink" style="display: none;">
+		<div class="row">
+			<div class="col-lg-9">
+    			<div class="input-group">
+   					<span class="input-group-addon">Link</span>
+					<input class="form-control" data-wysihtml5-dialog-field="href" class="text" placeholder="http://google.com">
+    			</div>
+    		</div>
+    		<div class="col-lg-3">
+    			<div>
+					<a class="btn btn-primary" data-wysihtml5-dialog-action="save">Insert Link</a>
+					<a class="btn btn-default" data-wysihtml5-dialog-action="cancel">Cancel</a>
+    			</div>
+    		</div>
+    	</div>
+	</div>
+
+	<div class="btn-group form-popup" data-wysihtml5-dialog="insertImage" style="display: none;">
+		<div class="row">
+			<div class="col-lg-3">
+    			<div class="input-group">
+   					<span class="input-group-addon">Link</span>
+					<input class="form-control" type="text" data-wysihtml5-dialog-field="src" placeholder="http://i.imgur.com/XBdqtW9.jpg">
+    			</div>
+    		</div>
+    		<div class="col-lg-3">
+    			<div class="input-group">
+   					<span class="input-group-addon">Width</span>
+					<input class="form-control" type="text" data-wysihtml5-dialog-field="width" placeholder="300">
+    			</div>
+    		</div>
+    		<div class="col-lg-3">
+    			<div class="input-group">
+   					<span class="input-group-addon">Height</span>
+					<input class="form-control" type="text" data-wysihtml5-dialog-field="height" placeholder="300">
+    			</div>
+    		</div>
+    		<div class="col-lg-3">
+    			<div>
+					<a class="btn btn-primary" data-wysihtml5-dialog-action="save">Insert Image</a>
+					<a class="btn btn-default" data-wysihtml5-dialog-action="cancel">Cancel</a>
+    			</div>
+    		</div>
+		</div>
+	</div>
+</div>
+	<%= f.text_area :content, id: 'wysihtml5-textarea', class: 'form-control' %></div>
+  <div class="form-group">
+   	<%= f.label :tags %>
+	<%= f.text_field :tags, class: 'form-control' %></div>
+  <div><button class="btn btn-primary form-control">Create Post</button></div>
+<% end %>
+
+<script>
+  var editor = new wysihtml5.Editor("wysihtml5-textarea", {
+    toolbar:      "wysihtml5-toolbar",
+    stylesheets:  "<%= stylesheet_path('wysiwyg') %>",
+    parserRules:  wysihtml5ParserRules
+  });
+</script>

@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "bootstrap";
+
 $c1: #DA0734;
 $c2: #F1A20D;
 $c3: #4AABB1;
@@ -113,6 +115,9 @@ nav{
 
 	form{
 		margin-right: 50px;
+		textarea{
+			height: 350px;
+		}
 	}
 
 	div.page-section{
@@ -159,4 +164,32 @@ nav{
 
 #passcode{
 	font-size: 3em;
+}
+
+#wysihtml5-toolbar{
+	margin-bottom: 10px;
+
+	button.wysihtml5-command-active{
+		z-index: 2; //copy from bootstrap css
+		background-image: none;
+		color: #333333;
+		background-color: #ebebeb;
+		border-color: #adadad;
+		outline: 0;
+		box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+	}
+
+	.form-popup{
+		margin-top: 5px;
+		.col-lg-3{
+			padding-left: 0;
+			padding-right: 5px;
+		}
+		.col-lg-3:first-child{
+			padding-left: 15px;
+		}
+		.col-lg-9{
+			padding-right: 5px;
+		}
+	}
 }

@@ -29,6 +29,7 @@ body{
 	color: $gray;
 	font-family: 'Droid Sans', sans-serif;
 	background-color: "#fff";
+	background-image: linear-gradient(to right, $gray-dark $nav-width, #fff $nav-width);
 }
 
 nav{

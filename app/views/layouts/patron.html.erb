@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title><%= @charity.name %></title>
+ 		 <link data-turbolinks-track="true" href="/assets/patron/<%= @settings.base_style %>" media="all" rel="stylesheet" />
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li><a href="index">Home</a></li>
+					<li><a href="posts">Posts</a></li>
+					<li><a href="about">About</a></li>
+					<li><a href="login">Login</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div class="container">
+			<%= yield %>
+		</div>
+	</body>
+</html>

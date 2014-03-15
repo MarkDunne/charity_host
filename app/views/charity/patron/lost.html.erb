@@ -1,0 +1,36 @@
+<h1>Posts</h1>
+<ul>
+	<li class="item"><a href="javascript:toggle('1');">Cats<span class="badge">4</span></a></li>
+	<div id="1" class="dropdown" style="display:none">
+		<li>Cat One</li>
+		<li>Cat Two</li>
+		<li>Cat Three</li>
+		<li>Cat Four</li>
+	</div>
+	<li class="item"><a href="javascript:toggle('2');">Dogs<span class="badge">4</span><a/></li>
+	<div id="2" class="dropdown" style="display:none">
+		<li>Dog One</li>
+		<li>Dog Two</li>
+		<li>Dog Three</li>
+		<li>Dog Four</li>
+	</div>
+	<li class="item"><a href="javascript:toggle('3');">Donkeys<span class="badge">4</span></a></li>
+	<div id="3" class="dropdown" style="display:none">
+		<li>Donkey One</li>
+		<li>Donkey Donkey Two</li>
+		<li>Donkey Three</li>
+		<li>Donkey Four</li>
+	</div>
+</ul>
+
+<script type="text/javascript">
+	function toggle(obj) {
+		var el = document.getElementById(obj);
+		if ( el.style.display != 'none' ) {
+			el.style.display = 'none';
+		}
+		else {
+			el.style.display = '';
+		}
+	}
+</script>

@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20140226232357) do
 
   create_table "charity_settings", force: true do |t|
     t.integer  "charity_id"
-    t.string   "base_template",           default: "charity/default"
+    t.string   "base_style",              default: "style1.css"
     t.string   "text_color"
     t.boolean  "enable_paypal_donations"
     t.string   "paypal_email"

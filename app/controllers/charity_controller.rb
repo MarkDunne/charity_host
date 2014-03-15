@@ -4,7 +4,6 @@ class CharityController < ApplicationController
 
 	def show
 		if @is_rendering_charity
-			@settings = @charity.settings
 			render 'charity/patron/show'
 		else
 			render 'charity/admin/show'
@@ -17,6 +16,18 @@ class CharityController < ApplicationController
 		else
 			render 'charity/admin/posts'
 		end	
+	end
+
+	def about
+		if @is_rendering_charity
+			render 'charity/patron/about'
+		end
+	end
+
+	def login
+		if @is_rendering_charity
+			render 'charity/patron/login'
+		end
 	end
 
 	def create
@@ -88,7 +99,8 @@ class CharityController < ApplicationController
 
 	def choose_layout
 		if @is_rendering_charity
-			self.class.layout @settings.base_template
+			@settings = @charity.settings
+			self.class.layout 'patron'
 		else
 			self.class.layout 'admin'
 		end

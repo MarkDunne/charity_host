@@ -15,19 +15,21 @@ class PostController < RedirectController
   end
 
   def create
-		post = @charity.posts.new(new_post_params)
-    post.author = current_user
-    post.save
+    render :json => params
 
-    if post.save
-      params[:post][:tags].delete(' ').split(',').each do |tag|
-        post.post_tags.create(tag: tag)
-      end
-      flash[:notice] = "Post created successfully"
-    else
-      flash[:error] = "Error creating post"
-    end
-    redirect_to charity_path(@charity)
+		# post = @charity.posts.new(new_post_params)
+  #   post.author = current_user
+  #   post.save
+
+  #   if post.save
+  #     params[:post][:tags].delete(' ').split(',').each do |tag|
+  #       post.post_tags.create(tag: tag)
+  #     end
+  #     flash[:notice] = "Post created successfully"
+  #   else
+  #     flash[:error] = "Error creating post"
+  #   end
+  #   redirect_to charity_path(@charity)
   end
 
   def edit

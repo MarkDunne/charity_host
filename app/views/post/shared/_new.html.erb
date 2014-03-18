@@ -100,10 +100,24 @@
 	</div>
 </div>
 	<%= f.text_area :content, id: 'wysihtml5-textarea', class: 'form-control' %></div>
+  <div class="tags-subform form-group form-inline">
+      <%= f.label :tags_input, 'Post Tags' %>
+      <%= f.text_field :tags_input, class: 'form-control', placeholder: 'Add Tag' %>
+  </div>
+  <div class="tags-subform form-group form-inline">
+      <label>Your Most Used Tags</label>
+      <% @charity.all_tags_ordered.each do |tagName| %>
+        <span class="tm-tag suggested-tag">
+          <button type="button" href="#" class="btn btn-default tm-tag-remove">
+            <%= tagName %><span class="glyphicon glyphicon-plus"></span>
+          </button>
+        </span>      
+      <% end %>
+  </div>
   <div class="form-group">
-   	<%= f.label :tags %>
-	<%= f.text_field :tags, class: 'form-control' %></div>
-  <div><button class="btn btn-primary form-control">Create Post</button></div>
+    <button class="btn btn-primary form-control">Create Post</button>
+  </div>
+
 <% end %>
 
 <script>
@@ -111,5 +125,12 @@
     toolbar:      "wysihtml5-toolbar",
     stylesheets:  "<%= stylesheet_path('wysiwyg') %>",
     parserRules:  wysihtml5ParserRules
+  });
+
+  $("#post_tags_input").tagsManager({
+    hiddenTagListName: "post[tags]"
+  });
+  $('.suggested-tag').click(function(){
+    $("#post_tags_input").tagsManager('pushTag',$(this).text());
   });
 </script>

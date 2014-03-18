@@ -33,7 +33,7 @@
 		<li><a href="<%= post_index_path(@charity) %>">All Posts</a></li>
 
 		
-		<% @charity.posts.map{|p| p.tags}.flatten.map{|t| t.tag}.uniq.each do |tag|%>
+		<% @charity.all_tags_ordered.each do |tag| %>
 			<li><a href="<%= post_index_path(@charity) %>?tag=<%=tag%>"><%= tag.capitalize %></a></li>
 		<% end %>
 	</ul>

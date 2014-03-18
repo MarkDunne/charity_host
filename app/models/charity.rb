@@ -29,4 +29,14 @@ class Charity < ActiveRecord::Base
   def user_posts
     posts.select{|p| !p.author.admin_of self}
   end
+
+  def all_tags
+    admin_posts.map{|p| p.tags}.flatten
+  end
+
+  def all_tags_ordered
+    hash = Hash.new(0)
+    all_tags.each {|t| hash[t.tag] +=1 }
+    hash.sort_by{|tag, count| count}.map{|kvPair| kvPair.first}
+  end
 end

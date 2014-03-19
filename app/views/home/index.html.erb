@@ -1,30 +1,112 @@
-<h1>CharityHosting.ie</h1>
+<% if user_signed_in?  %>
 
-<% if !user_signed_in? %>
-	<%= render partial: "devise/shared/links" %>
-<% else %>
+	<% content_for :page_title do %>
+		CharityHosting.ie
+	<% end %>
+
 	<div class="page-section">
-	<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-	<%= render partial: "charity/admin/registrations/new" %>	
+		<%= render partial: "charity/admin/registrations/new" %>	
 	</div>
 
 	<div class="page-section">
+<%= form_for :charity, url: '/charity/check_passcode', html:{class: "form-horizontal", role: "form"} do |f| %>
+		<fieldset>
+	<legend>Become an admin of an existing charity</legend>
 
-		<h3>Enter Charity Passcode</h3>
-		<%= form_for :charity, url: '/charity/check_passcode' do |f| %>
-			<%= f.label :passcode, "Passcode" %>
-			<%= f.text_field :passcode %>
+	  <div class="form-group">
+		  <%= f.label :passcode, class: "col-sm-3 control-label" %>
+		  <div class="col-sm-6">
+		  	<%= f.text_field :passcode, :autofocus => true, class: "form-control" %>
+		  </div>
+	  </div>
 
-			<%= f.submit "Enter" %>
-
-		<% end %>
-	</div>
+	  <div class="form-group">
+	    <div class="col-sm-offset-3 col-sm-6">
+	      <%= f.submit "Join Charity", :class => "btn btn-primary form-control" %>
+	    </div>
+	  </div>
+	  </fieldset>
+<% end %>
+</div>
 
 	<div class="page-section">
 		<h3>Managed Charities</h3>
-		<% current_user.managed_charities.each do |charity| %>
-			<p><%= link_to charity.name, charity %></p>
+		<% if current_user.managed_charities.count == 0 %>
+			<p>You are not currently an admin of any charities</p>
+		<% else %>
+			<ul>
+			<% current_user.managed_charities.each do |charity| %>
+				<li><p><%= link_to charity.name, charity %></p></li>
+			<% end %>
+			</ul>
 		<% end %>
 	</div>
 
+<% else %>
+	<!-- user not signed in -->
+	<%= form_for resource, :as => resource_name, :url => registration_path(resource_name), html:{class: "form-horizontal", role: "form"} do |f| %>
+			<fieldset>
+		<legend>New here? Sign Up</legend>
+		  <%= devise_error_messages! %>
+
+		  <div class="form-group">
+			  <%= f.label :email, class: "col-sm-3 control-label" %>
+			  <div class="col-sm-6">
+			  	<%= f.email_field :email, :autofocus => true, class: "form-control" %>
+			  </div>
+		  </div>
+
+		  <div class="form-group">
+		  	<%= f.label :password, class: "col-sm-3 control-label" %>
+		  	<div class="col-sm-6">
+		  		<%= f.password_field :password, class: "form-control"  %></div>
+		  	</div>
+		  <div class="form-group">
+		  	<%= f.label :password_confirmation, class: "col-sm-3 control-label" %>
+
+		  	<div class="col-sm-6">
+		  		<%= f.password_field :password_confirmation, class: "form-control" %>
+		  	</div>
+		  </div>
+		  <div class="form-group">
+		    <div class="col-sm-offset-3 col-sm-6">
+		      <%= f.submit "Sign Up", :class => "btn btn-primary form-control" %>
+		    </div>
+		  </div>
+		  </fieldset>
+	<% end %>
+
+
+	<%= form_for resource, :as => resource_name, :url => session_path(resource_name), html:{class: "form-horizontal sign-in-form", role: "form"} do |f| %>
+			<fieldset>
+		<legend>Already a member? Sign In</legend>
+		  <%= devise_error_messages! %>
+
+		  <div class="form-group">
+			  <%= f.label :email, class: "col-sm-3 control-label" %>
+			  <div class="col-sm-6">
+			  	<%= f.email_field :email, class: "form-control" %>
+			  </div>
+		  </div>
+
+		  <div class="form-group">
+		  	<%= f.label :password, class: "col-sm-3 control-label" %>
+		  	<div class="col-sm-6">
+		  		<%= f.password_field :password, class: "form-control"  %></div>
+		  	</div>
+
+		  <div class="form-group">
+		  <%= f.label :remember_me, class: "col-sm-3 control-label" %>
+		  	<div class="col-sm-6">
+		  		<%= f.check_box :remember_me %>
+		  	</div>
+		  </div>
+
+		  <div class="form-group">
+		    <div class="col-sm-offset-3 col-sm-6">
+		      <%= f.submit "Sign In", :class => "btn btn-primary form-control" %>
+		    </div>
+		  </div>
+		  </fieldset>
+	<% end %>
 <% end %>

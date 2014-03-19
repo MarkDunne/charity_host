@@ -1,8 +1,23 @@
-<h3>Create Charity</h3>
-<%= form_for :charity, :url => {:controller => "charity", :action => "create"} do |f| %>
-  <div><%= f.label :name %><br />
-  <%= f.text_field :name, :autofocus => true %></div>
-  <div><%= f.label :domain %><br />
-  <%= f.text_field :domain %></div>
-  <div><%= f.submit "Create Charity" %></div>
+<%= form_for :charity, :url => {:controller => "charity", :action => "create"}, html:{class: "form-horizontal", role: "form"} do |f| %>
+		<fieldset>
+	<legend>Start a Charity Page</legend>
+
+	  <div class="form-group">
+		  <%= f.label :name, class: "col-sm-3 control-label" %>
+		  <div class="col-sm-6">
+		  	<%= f.text_field :name, :autofocus => true, class: "form-control" %>
+		  </div>
+	  </div>
+
+	  <div class="form-group">
+	  	<%= f.label :domain, class: "col-sm-3 control-label" %>
+	  	<div class="col-sm-6">
+	  		<%= f.text_field :domain, class: "form-control"  %></div>
+	  </div>
+	  <div class="form-group">
+	    <div class="col-sm-offset-3 col-sm-6">
+	      <%= f.submit "Create charity page", :class => "btn btn-primary form-control" %>
+	    </div>
+	  </div>
+	  </fieldset>
 <% end %>

@@ -32,6 +32,8 @@ CharityHost::Application.routes.draw do
 
   resources :charity, :path => 'charity'
 
+  #override devise
+  get '/users/sign_in', to: 'home#index', as: 'new_user_session_path'
   devise_for :users
   root :to => 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.

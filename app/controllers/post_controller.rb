@@ -4,7 +4,7 @@ class PostController < RedirectController
   before_filter :find_post, :only => [:edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = @charity.posts.order('created_at DESC')
     if !params[:tag].blank?
       @posts = @posts.select{|p| p.has_tag params[:tag]} 
     end
@@ -21,11 +21,11 @@ class PostController < RedirectController
 
     if post.save
       params[:post][:tags].delete(' ').split(',').each do |tag|
-        post.post_tags.create(tag: tag)
+        post.tags.create(tag: tag)
       end
       flash[:notice] = "Post created successfully"
     else
-      flash[:error] = "Error creating post"
+      flash[:error] = "Error creating post, a title and some content are necessary"
     end
     redirect_to charity_path(@charity)
   end

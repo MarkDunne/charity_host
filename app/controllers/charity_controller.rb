@@ -32,13 +32,13 @@ class CharityController < ApplicationController
 
 	def create
 		if !user_signed_in?
-			flash[:alert] = "You must be signed in to create a charity"
+			flash[:error] = "You must be signed in to create a charity"
 		else
 			@charity = Charity.new(new_charity_params)
 			if @charity.save && AdminsCharity.create(user_id: current_user.id, charity_id: @charity.id)
 				flash[:notice] = 'Charity created successfully'
 			else
-				flash[:alert] = 'Error while creating charity'
+				flash[:error] = 'Error while creating charity'
 			end
 		end
 		redirect_to :back
@@ -55,7 +55,7 @@ class CharityController < ApplicationController
 				AdminsCharity.create(user_id: user.id, charity_id: @charity.id)
 				flash[:notice] = "Admin added successfully"
 			else
-				flash[:alert] = "Error adding admin"
+				flash[:error] = "Error adding admin"
 			end
 		else
 			details = add_user_params
@@ -63,7 +63,7 @@ class CharityController < ApplicationController
 			if !CharityInviteOffers.exists?(details)
 				CharityInviteOffers.create(details)
 			end
-			flash[:alert] = "Admin offer extended to #{details[:email]}"
+			flash[:error] = "Admin offer extended to #{details[:email]}"
 		end
 		redirect_to charity_path(@charity)
 	end
@@ -74,7 +74,7 @@ class CharityController < ApplicationController
 			AdminsCharity.find_or_create_by(user_id: current_user.id, charity_id: charity.id)
 			flash[:notice] = "Passcode Successful"
 		else
-			flash[:alert] = "Passcode Failed"
+			flash[:error] = "Passcode Failed"
 		end
 		redirect_to :root
 	end

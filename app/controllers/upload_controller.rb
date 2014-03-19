@@ -13,7 +13,7 @@ class UploadController < RedirectController
   	if charityFile.save
   		flash[:notice] = "File Upload Successful"
   	else
-  		flash[:alert] = "File Upload Failed"
+  		flash[:error] = "File Upload Failed"
   	end
   	redirect_to upload_path
   end

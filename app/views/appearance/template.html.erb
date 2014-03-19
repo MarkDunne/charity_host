@@ -7,8 +7,8 @@
 <%= form_for @charity.settings, url: appearance_path(@charity.id, :update_template), html:{class: "form-horizontal", role: "form"} do |f| %>
 
 	<div class="form-group">
-	    <%= f.label :text_color, "Choose Template", class: "col-sm-2 control-label" %>
-	    <div class="col-sm-10">
+	    <%= f.label :text_color, "Choose Template", class: "col-sm-4 control-label" %>
+	    <div class="col-sm-6">
 	    	<div class="radio">
 	    		<label>
 	  	    		<%= f.radio_button(:base_style, "style1.css") %> Style 1
@@ -23,8 +23,8 @@
   	</div>
   	
 	<div class="form-group">
-	    <div class="col-sm-offset-2 col-sm-10">
-	      <%= f.submit "Set Template", :class => "btn btn-default" %>
+	    <div class="col-sm-offset-4 col-sm-6">
+	      <%= f.submit "Set Template", :class => "btn btn-primary form-control" %>
 	    </div>
   	</div>
 

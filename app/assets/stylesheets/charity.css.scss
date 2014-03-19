@@ -218,3 +218,9 @@ nav{
 .alert{
 	margin-right: 50px;
 }
+
+.form-group{
+	input[type=checkbox]{
+		vertical-align: bottom;
+	}
+}

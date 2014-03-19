@@ -10,6 +10,8 @@ class CharityController < ApplicationController
 		end
 	end
 
+
+
 	def posts
 		if @is_rendering_charity
 			render 'charity/patron/posts'
@@ -30,6 +32,19 @@ class CharityController < ApplicationController
 		end
 	end
 
+	def statistics
+		if !@is_rendering_charity
+			@views_per_day = @charity.views_per_day;
+			render 'charity/admin/statistics'
+		end
+	end
+
+	def manage_admins
+		if !@is_rendering_charity
+			render 'charity/admin/manage_admins'
+		end
+	end
+
 	def create
 		if !user_signed_in?
 			flash[:error] = "You must be signed in to create a charity"
@@ -42,10 +57,6 @@ class CharityController < ApplicationController
 			end
 		end
 		redirect_to :back
-	end
-
-	def manage_admins
-		render 'charity/admin/manage_admins'
 	end
 
 	def add_admin

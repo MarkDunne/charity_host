@@ -2,6 +2,7 @@
 	<head>
 		<title><%= @charity.name %></title>
  		 <link data-turbolinks-track="true" href="/assets/patron/<%= @settings.base_style %>" rel="stylesheet" />
+ 		 <% @charity.views.create(ip: request.remote_ip) %>
 	</head>
 	<body>
 		<header>

@@ -8,6 +8,7 @@ class Charity < ActiveRecord::Base
   has_many :admins, source: :user, through: :admins_charities
 
 	has_many :posts
+  has_many :views, class_name: "CharityView"
   has_many :donations
   has_many :newsletter_subscriptions
   has_one :settings, class_name: "CharitySettings"
@@ -38,5 +39,11 @@ class Charity < ActiveRecord::Base
     hash = Hash.new(0)
     all_tags.each {|t| hash[t.tag] +=1 }
     hash.sort_by{|tag, count| count}.map{|kvPair| kvPair.first}
+  end
+
+  def views_per_day
+    viewHash = Hash.new(0)
+    views.order('created_at DESC').limit(30).each {|v| viewHash[v.created_at.strftime("%d/%m/%Y")] +=1 }
+    return viewHash
   end
 end

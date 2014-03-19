@@ -11,8 +11,10 @@
 			<li>
 				<span><%= post.title %></span>
 				<span class="list-right">
-					<span>
-						[<%= post.tags.map{|t| t.tag}.join(", ") %>]
+					<span class="labels">
+						<% post.tags.map{|t| t.tag}.each do |tagName|%>
+							<span class="label label-primary"><%= tagName %> </span>
+						<% end %>
 					</span>
 					<span class="list-time"><%= post.created_at.strftime("%m/%d/%Y") %></span>
 					<a href="<%= post_path(@charity, post, :edit) %>"><%= image_tag 'glyphicons_150_edit.png', :class => "edit", alt: "Edit" %></a>

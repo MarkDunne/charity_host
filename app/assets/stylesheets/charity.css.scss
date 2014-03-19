@@ -14,14 +14,14 @@ $nav-width: 25%;
 $nav-color: #232323;
 $white: #f1f1f1;
 
-$light-blue: #4AABB1;
+$light-blue: #428bca;
 $dark-blue: #4989E4;
 
 $red-light: #C02222;
 $red-dark: #A52020;
 
-$gray: #3D434B;
-$gray-dark: #292E33;
+// $gray: #3D434B;
+$gray-dark: #333;
 
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
 
@@ -39,9 +39,8 @@ nav{
 	height: 100%;
 	width: $nav-width;
 	position: absolute;
-	background:  linear-gradient($gray, $gray-dark);
 	h1{
-		color: $gray;
+		color: $gray-dark;
 		padding: 25px;
 		padding-top: 30px;
 		padding-bottom: 30px;
@@ -76,7 +75,6 @@ nav{
 		}
 		li.category{
 			background-color: $light-blue;
-			color: $gray;
 		}
 	}
 }
@@ -136,6 +134,14 @@ nav{
 				margin-top: 10px;
 				border-radius: 3px;
 				border-bottom: 2px solid #d8d8d8;
+
+				.labels{
+					vertical-align: text-bottom;
+				}
+
+				.label{
+					margin-right:5px;
+				}
 
 				.list-time{
 					margin-right: 5px;

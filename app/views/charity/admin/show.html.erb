@@ -8,7 +8,7 @@
 	<h3>Admin Posts</h3>
 	<ul>
 		<% @charity.admin_posts.each do |post| %>
-			<li>
+			<li class="post">
 				<span><%= post.title %></span>
 				<span class="list-right">
 					<span class="labels">
@@ -17,8 +17,12 @@
 						<% end %>
 					</span>
 					<span class="list-time"><%= post.created_at.strftime("%m/%d/%Y") %></span>
-					<a href="<%= post_path(@charity, post, :edit) %>"><%= image_tag 'glyphicons_150_edit.png', :class => "edit", alt: "Edit" %></a>
-					<a href="<%= post_path(@charity, post, :destroy) %>"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
+					<a href="<%= post_path(@charity, post, :edit) %>" class="edit">
+						<%= image_tag 'glyphicons_150_edit.png', alt: "Edit" %>
+					</a>
+					<a href="<%= post_path(@charity, post, :destroy) %>" class="delete">
+						<%= image_tag 'glyphicons_197_remove.png', alt: "Delete" %>
+					</a>
 				</span>
 			</li>
 		<% end %>
@@ -33,10 +37,20 @@
 				<span><%= post.title  %></span>
 				<span class="list-right">
 					<span class="list-time"><%= post.created_at.strftime("%m/%d/%Y") %></span>
-					<a href="#"><%= image_tag 'glyphicons_150_edit.png', :class => "edit", alt: "Edit" %></a>
-					<a href="#"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
+					<a href="#" class="edit">
+						<%= image_tag 'glyphicons_150_edit.png', alt: "Edit" %>
+					</a>
+					<a href="#" class="delete">
+						<%= image_tag 'glyphicons_197_remove.png', alt: "Delete" %>
+					</a>
 				</span>
 			</li>
 		<% end %>
 	</ul>
 </div>
+
+<script type="text/javascript">
+	$('.post .delete').click(function(){
+    return confirm("Are you sure you want to delete this post?");
+})
+</script>

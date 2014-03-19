@@ -3,7 +3,7 @@ class AppearanceController < RedirectController
   layout 'admin'
 
   def update_template
-  	@charity.settings.update(update_appearance_params)
+  	@charity.settings.update_attributes(update_appearance_params)
   	redirect_to charity_path(@charity)
   end
 

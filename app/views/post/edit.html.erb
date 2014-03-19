@@ -2,19 +2,34 @@
 	Editing Post
 <% end %>
 
+
 <h3>Edit Post</h3>
-<%= form_for @post, :url => {:controller => "post", :action => "update"} do |f| %>
-
-  <div>
+<%= form_for @post, :url => {:controller => "post", :action => "update"}, :class => 'form' do |f| %>
+  <div class="form-group">
   	<%= f.label :title %>
-  	<%= f.text_field :title, :autofocus => true %>
-  </div>
+	<%= f.text_field :title, :autofocus => true, class: 'form-control' %></div>
+  <div class="form-group">
 
-  <div>
-	<%= f.label :content %>
-	<%= f.text_area :content %>
+  <%= f.label :content %>
+  <%= render :partial => 'post/shared/wysihtml5_toolbar' %>
+	<%= f.text_area :content, id: 'wysihtml5-textarea', class: 'form-control' %></div>
+	<div class="tags-subform form-group form-inline">
+      <label for="tags_input">Post Tags:</label>
+      <input class="form-control" id="tags_input" name="tags_input" placeholder="Add Tag" type="text">
   </div>
-  <div><%= f.submit "Update Post" %></div>
+  <div class="tags-subform form-group form-inline">
+      <label>Your Most Used Tags:</label>
+      <% @charity.all_tags_ordered.each do |tagName| %>
+        <span class="tm-tag suggested-tag">
+          <button type="button" href="#" class="btn btn-default tm-tag-remove">
+            <%= tagName %><span class="glyphicon glyphicon-plus"></span>
+          </button>
+        </span>      
+      <% end %>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary form-control">Update Post</button>
+  </div>
 <% end %>
 
 <div class="page-section">
@@ -32,3 +47,18 @@
 		<% end %>
 	</ul>
 </div>
+
+<script>
+  $(document).ready(function(){
+	  $.each(<%= @post.tags.map{|t| t.tag}.to_json.html_safe %>, function(index, value){
+	  	$("#tags_input").tagsManager('pushTag', value);
+	  });
+  })
+
+  $("#tags_input").tagsManager({
+    hiddenTagListName: "post[tags]"
+  });
+  $('.suggested-tag').click(function(){
+    $("#tags_input").tagsManager('pushTag',$(this).text());
+  });
+</script>

@@ -36,8 +36,7 @@ class PostController < RedirectController
 
   def update
     @post.update_attributes(new_post_params)
-    @post.save
-    redirect_to charity_path(@charity, :posts)
+    redirect_to charity_path(@charity)
   end
 
   def destroy

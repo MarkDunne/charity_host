@@ -23,11 +23,11 @@ class Charity < ActiveRecord::Base
   end
 
   def admin_posts
-    posts.select{|p| p.author.admin_of self}
+    posts.order('created_at DESC').select{|p| p.author.admin_of self}
   end
 
   def user_posts
-    posts.select{|p| !p.author.admin_of self}
+    posts.order('created_at DESC').select{|p| !p.author.admin_of self}
   end
 
   def all_tags

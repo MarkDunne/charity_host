@@ -82,6 +82,9 @@ nav{
 #main{
 	padding-left: 50px;
 	margin-left: $nav-width;
+	div#alerts{
+		margin-top: 25px;
+	}
 	div#topbar{
 		height: 50px;
 		line-height: 50px;
@@ -210,4 +213,8 @@ nav{
 
 .tags-subform>*{
 	margin-right: 5px;
+}
+
+.alert{
+	margin-right: 50px;
 }

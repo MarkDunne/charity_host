@@ -5,6 +5,7 @@ class AppearanceController < RedirectController
   def update_template
   	@charity.settings.update_attributes(update_appearance_params)
   	redirect_to charity_path(@charity)
+  	flash[:notice] = "Template Updated"
   end
 
   private

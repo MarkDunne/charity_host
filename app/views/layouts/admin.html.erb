@@ -10,9 +10,6 @@
 </head>
 <body>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
 <nav>
 	<h1><%= @charity.name %></h1>
 	<ul>
@@ -39,16 +36,19 @@
 </nav>
 
 <div id="main">
-<div id="topbar">
-	<h2><%= yield :page_title %></h2>
-	<span>
-		<%= current_user.email %>
-		<%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-default" %> 
-		<a href="<%= edit_user_registration_path %>">
-			<%= image_tag 'glyphicons_136_cogwheel.png', :class => "settings", alt: 'Settings' %>
-		</a>
-	</span>
-</div>
+
+	<%= render partial: 'layouts/shared/flash_alerts' %>
+
+	<div id="topbar">
+		<h2><%= yield :page_title %></h2>
+		<span>
+			<%= current_user.email %>
+			<%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-default" %> 
+			<a href="<%= edit_user_registration_path %>">
+				<%= image_tag 'glyphicons_136_cogwheel.png', :class => "settings", alt: 'Settings' %>
+			</a>
+		</span>
+	</div>
 	<%= yield %>
 </div>
 

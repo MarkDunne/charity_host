@@ -11,10 +11,9 @@
 </head>
 <body>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
 <div id="main">
+
+	<%= render partial: 'layouts/shared/flash_alerts' %>
 
 	<% if user_signed_in? %>
 		<div id="topbar">

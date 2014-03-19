@@ -5,18 +5,28 @@
 <div class="page-section">
 	<h3>Charity Passcode</h3>
 	<p id="passcode"><%= @charity.passcode %></p>
+	<p>The passcode is randomly generated any time an admin is added or removed for security.</p>
 </div>
 
 <div class="page-section">
 	<h3>Current Admins</h3>
 	<ul>
 		<% @charity.admins.each do |admin| %>
-			<li>
+			<li class="admin">
 				<span><%= admin.email %></span>
 				<span class="list-right">
-					<a href="#"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
+					<% if admin != current_user %>
+						<a href="#" class="delete"><%= image_tag 'glyphicons_197_remove.png', alt: "Delete" %></a>
+					<% end %>
 				</span>
 			</li>
 		<% end %>
 	</ul>
 </div>
+
+
+<script type="text/javascript">
+	$('.admin .delete').click(function(){
+		return confirm("Are you sure you want to remove this admin?");
+	});
+</script>

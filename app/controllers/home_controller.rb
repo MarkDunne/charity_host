@@ -1,5 +1,8 @@
 class HomeController < RedirectController
+
+	layout 'home'
+
 	def index
-		self.class.layout 'application'
+
 	end
 end

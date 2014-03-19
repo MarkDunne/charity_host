@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CharityHost</title>
+  	<link data-turbolinks-track="true" href="/assets/application.css?body=1" media="all" rel="stylesheet" />
+	<link data-turbolinks-track="true" href="/assets/charity.css?body=1" media="all" rel="stylesheet" />
+	<link data-turbolinks-track="true" href="/assets/home.css?body=1" media="all" rel="stylesheet" />
+
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<div id="main">
+<div id="topbar">
+	<h2><%= yield :page_title %></h2>
+	<span>
+		<%= current_user.email %>
+		<%= link_to 'Sign Out', destroy_user_session_path, class: "btn btn-default" %> 
+		<a href="<%= edit_user_registration_path %>">
+			<%= image_tag 'glyphicons_136_cogwheel.png', :class => "settings", alt: 'Settings' %>
+		</a>
+	</span>
+</div>
+	<%= yield %>
+</div>
+
+</body>
+</html>

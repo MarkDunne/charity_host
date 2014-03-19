@@ -12,6 +12,6 @@ class Post < ActiveRecord::Base
   has_one :animal_detail
 
   def has_tag (tag)
-  	post_tags.exists?(tag: tag)
+  	tags.exists?(tag: tag)
   end
 end

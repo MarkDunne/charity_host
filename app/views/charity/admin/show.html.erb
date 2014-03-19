@@ -6,27 +6,7 @@
 
 <div class="page-section">
 	<h3>Admin Posts</h3>
-	<ul>
-		<% @charity.admin_posts.each do |post| %>
-			<li class="post">
-				<span><%= post.title %></span>
-				<span class="list-right">
-					<span class="labels">
-						<% post.tags.map{|t| t.tag}.each do |tagName|%>
-							<span class="label label-primary"><%= tagName %> </span>
-						<% end %>
-					</span>
-					<span class="list-time"><%= post.created_at.strftime("%m/%d/%Y") %></span>
-					<a href="<%= post_path(@charity, post, :edit) %>" class="edit">
-						<%= image_tag 'glyphicons_150_edit.png', alt: "Edit" %>
-					</a>
-					<a href="<%= post_path(@charity, post, :destroy) %>" class="delete">
-						<%= image_tag 'glyphicons_197_remove.png', alt: "Delete" %>
-					</a>
-				</span>
-			</li>
-		<% end %>
-	</ul>
+	<%= render partial: 'post/shared/post_list', locals: {posts: @charity.admin_posts} %>
 </div>
 
 <div class="page-section">

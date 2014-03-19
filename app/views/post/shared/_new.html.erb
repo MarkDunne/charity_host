@@ -10,11 +10,6 @@
 	<%= f.text_area :content, id: 'wysihtml5-textarea', class: 'form-control' %></div>
   <div class="tags-subform form-group form-inline">
       <%= f.label :tags_input, 'Post Tags:' %>
-
-      <span class="tm-tag">
-        <button type="button" href="#" class="btn btn-primary">BlogPost</button>
-      </span>
-
       <%= f.text_field :tags_input, class: 'form-control', placeholder: 'Add Tag' %>
   </div>
   <div class="tags-subform form-group form-inline">
@@ -40,4 +35,5 @@
   $('.suggested-tag').click(function(){
     $("#post_tags_input").tagsManager('pushTag',$(this).text());
   });
+  $("#post_tags_input").tagsManager('pushTag',"BlogPost");
 </script>

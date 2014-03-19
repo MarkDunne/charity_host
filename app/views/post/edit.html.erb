@@ -32,22 +32,6 @@
   </div>
 <% end %>
 
-<div class="page-section">
-	<h3>Comments</h3>
-	<ul>
-		<% @post.comments.each do |comment| %>
-			<li>
-				<span><%= comment.comment %></span>
-				<span class="list-right">
-					<span class="list-time"><%= comment.created_at.strftime("%m/%d/%Y") %></span>
-					<a href="<%= comment_path(@charity, @post, comment, :show) %>"><%= image_tag 'glyphicons_150_edit.png', :class => "edit", alt: "Show" %></a>
-					<a href="<%= comment_path(@charity, @post, comment, :destroy) %>"><%= image_tag 'glyphicons_197_remove.png', :class => "delete", alt: "Delete" %></a>
-				</span>
-			</li>
-		<% end %>
-	</ul>
-</div>
-
 <script>
   $(document).ready(function(){
 	  $.each(<%= @post.tags.map{|t| t.tag}.to_json.html_safe %>, function(index, value){

@@ -8,7 +8,7 @@
 						<span class="label label-primary"><%= tagName %> </span>
 					<% end %>
 				</span>
-				<span class="list-time"><%= post.created_at.strftime("%m/%d/%Y") %></span>
+				<span class="list-time"><%= post.created_at.strftime("%d/%m/%Y") %></span>
 				<a href="<%= post_path(@charity, post, :edit) %>" class="edit">
 					<%= image_tag 'glyphicons_150_edit.png', alt: "Edit" %>
 				</a>

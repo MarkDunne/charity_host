@@ -16,6 +16,7 @@
 
 		<li><a href="http://<%= @charity.domain %>">Preview</a></li>
 		<li><a href="<%= charity_path %>">Home</a></li>
+		<li><%= link_to 'Statistics', charity_path(@charity, :statistics) %></li>
 		<li class="category"><span>Appearance</span></li>
 		<li><a href="<%= appearance_path(@charity, :template) %>">Change Base Template</a></li>
 		<li><a href="<%= appearance_path(@charity, :configure_template) %>">Configure Template</a></li>

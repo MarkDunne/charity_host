@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226232357) do
+ActiveRecord::Schema.define(version: 20140319213021) do
 
   create_table "admins_charities", force: true do |t|
     t.integer  "user_id"
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 20140226232357) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "charity_views", force: true do |t|
+    t.string   "ip"
+    t.integer  "charity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "charity_views", ["charity_id"], name: "index_charity_views_on_charity_id"
 
   create_table "comments", force: true do |t|
     t.integer  "post_id"

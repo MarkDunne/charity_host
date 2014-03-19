@@ -25,7 +25,7 @@ class PostController < RedirectController
       end
       flash[:notice] = "Post created successfully"
     else
-      flash[:error] = "Error creating post"
+      flash[:error] = "Error creating post, a title and some content are necessary"
     end
     redirect_to charity_path(@charity)
   end

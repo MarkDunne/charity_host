@@ -6,11 +6,11 @@
 			<%= flash[:notice] %>
 		</div>
 	<% end %>
-	<% if flash[:alert] %>
+	<% if flash[:error] %>
 		<div class="alerts">
 			<div class="alert alert-danger alert-dismissable">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-			<%= flash[:alert] %>
+			<%= flash[:error] %>
 		</div>
 	<% end %>
 </div>

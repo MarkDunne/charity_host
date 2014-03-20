@@ -10,8 +10,12 @@ class ApplicationController < ActionController::Base
     @is_rendering_charity = false
     @charity = Charity.find_by_domain(request.host)
     if @charity
-      @is_rendering_charity = true
-      redirect_to_charity
+      if @charity.verified
+        @is_rendering_charity = true
+        redirect_to_charity
+      else
+        render 'charity/patron/validate'
+      end
     else
       #makes sure the user has access && gets charity
       if user_signed_in?

@@ -3,13 +3,9 @@ class CreateAnimalDetails < ActiveRecord::Migration
     create_table :animal_details do |t|
       t.belongs_to :post, index: true
       t.string :name
-      t.string :species
-      t.string :color
-      t.string :phone_no
-      t.string :owner
-      t.string :last_seen
-
-      t.timestamps
+      t.string :email
+      t.string :animal_name
+      t.text :details
     end
   end
 end

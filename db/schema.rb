@@ -24,15 +24,11 @@ ActiveRecord::Schema.define(version: 20140319213021) do
   add_index "admins_charities", ["user_id"], name: "index_admins_charities_on_user_id"
 
   create_table "animal_details", force: true do |t|
-    t.integer  "post_id"
-    t.string   "name"
-    t.string   "species"
-    t.string   "color"
-    t.string   "phone_no"
-    t.string   "owner"
-    t.string   "last_seen"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "post_id"
+    t.string  "name"
+    t.string  "email"
+    t.string  "animal_name"
+    t.text    "details"
   end
 
   add_index "animal_details", ["post_id"], name: "index_animal_details_on_post_id"
@@ -51,8 +47,10 @@ ActiveRecord::Schema.define(version: 20140319213021) do
     t.integer  "charity_id"
     t.string   "base_style",              default: "style1.css"
     t.string   "text_color"
+    t.string   "header_image"
     t.boolean  "enable_paypal_donations"
     t.string   "paypal_email"
+    t.text     "about",                   default: "Update 'About Your Charity' in the admin view"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

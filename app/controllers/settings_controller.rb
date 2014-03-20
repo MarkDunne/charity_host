@@ -10,6 +10,6 @@ class SettingsController < RedirectController
   private
 
 	def update_settings_params
-		params.require(:charity_settings).permit(:enable_paypal_donations, :paypal_email)
+		params.require(:charity_settings).permit(:header_image, :about, :enable_paypal_donations, :paypal_email)
 	end 
 end

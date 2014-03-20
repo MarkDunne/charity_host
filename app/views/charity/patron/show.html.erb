@@ -1,33 +1,81 @@
-<div class="jumbotron">
-	EL JUMBOTRON (logos etc)
-</div>
+<div class="row">
+        <div class="jumbotron">
+          <% if @settings.header_image %>
+            <img src="<%= @settings.header_image %>">
+          <% else %>
+            <p>Set your header image in the admin panel</p>
+          <% end %>
+        </div>  
+        <div class="col-sm-8 blog-main">
+          <div class="blog-header">
+            <h1 class="blog-title"><%= @charity.name %></h1>
+          </div>
 
-<div id="content">
-	<h1>BLEH</h1>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque enim libero, rutrum quis turpis sit amet, aliquet pellentesque ipsum. Donec et pulvinar massa. Aenean ornare commodo risus, nec rhoncus turpis accumsan fermentum. Aenean nisl nulla, sodales vitae ornare dignissim, afgsfiaculis commodo odio. Aliquam tristique tincidunt mollis. Morbi non fermentum magna, et ultricies tortor. Cras faucibus dignissim tellus quis fermentum. Pellentesque mollis id massa in consequat. Aliquam eget libero quis eros facilisis rhoncus in quis lacus.
+          <% @posts.each do |post| %>
+            <div class="blog-post">
+              <h2 class="blog-post-title"><%= post.title %></h2>
+              <p class="blog-post-meta"><%= post.created_at.strftime("%B, %d, %Y") %> by <%= post.author.email %></p>
 
-	Vestibulum at neque turpis. Mauris vulputate quam vel dui lobortis, ut tincidunt mi condimentum. Proin commodo est faucibus odio rhoncus, in congue odio consequat. Nunc placerat hendrerit viverra. Donec mattis massa a nisi tincidunt tempus. Ut eu ultrices ipsum. Nam interdum non ipsum nec bibendum. Proin ornare mi lobortis dictum posuere. Quisque malesuada semper dolor nec egestas.
+              <%= post.content.html_safe %>
 
-	Sed dapibus in turpis sed hendrerit. Cras lobortis tellus augue, in pretium sapien vulputate vel. Nullam hendrerit, neque vitae tincidunt dignissim, tortor lacus mollis libero, nec rutrum ante tellus quis elit. Cras laoreet auctor sem, sit amet convallis ligula lacinia sed. Etiam vel libero mollis turpis rutrum cursus. Maecenas ut enim eu leo ultricies interdum vitae id ipsum. Aliquam at mollis massa. Etiam vestibulum elementum nisi et tempor. Suspendisse hendrerit lacinia quam, non accumsan sapien gravida et. Nullam bibendum convallis enim, a feugiat est gravida sed. Phasellus adipiscing tortor ultrices massa consectetur adipiscing. Aenean in ullamcorper nulla.
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              var disqus_shortname = 'charityhosting'; // required: replace example with your forum shortname
 
-	Nunc eget tortor sem. Cras in eleifend mi, et consequat felis. Curabitur feugiat est eu urna porttitor ornare. Aenean tincidunt metus a nisl egestas placerat. Fusce posuere eleifend elit, eu bibendum elit. Curabitur dapibus turpis erat, quis lacinia nulla euismod ut. Vestibulum vitae fermentum lorem. Sed auctor facilisis mi, ac condimentum risus luctus et.
+              /* * * DON'T EDIT BELOW THIS LINE * * */
+              (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com#disqus_thread" class="dsq-brlink">Comments powered by <span class="logo-disqus">Disqus</span></a>
 
-	Maecenas facilisis justo non felis molestie congue. Suspendisse ante mauris, tincidunt sit amet lacus vitae, luctus imperdiet turpis. Nullam et eros ut mi posuere egestas sit amet quis arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pretium purus id sem sodales, sit amet varius dolor consequat. Phasellus nec lorem eget neque adipiscing scelerisque. Nullam a libero mattis, aliquam arcu ut, bibendum leo.
-	</p>
+            </div>
+          <% end %>
+        </div><!-- /.blog-main -->
 
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque enim libero, rutrum quis turpis sit amet, aliquet pellentesque ipsum. Donec et pulvinar massa. Aenean ornare commodo risus, nec rhoncus turpis accumsan fermentum. Aenean nisl nulla, sodales vitae ornare dignissim, afgsfiaculis commodo odio. Aliquam tristique tincidunt mollis. Morbi non fermentum magna, et ultricies tortor. Cras faucibus dignissim tellus quis fermentum. Pellentesque mollis id massa in consequat. Aliquam eget libero quis eros facilisis rhoncus in quis lacus.
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            <div class="sidebar-module sidebar-module-inset">
+              <h4>About</h4>
+              <p><%= @settings.about.html_safe %></p>
+            </div>
+<!--           <div class="sidebar-module sidebar-module-inset">
+            <h4>Sign Up for our Newsletter</h4>
+            <form class="form-signin" role="form" action="" method="">
+              <input type="name" class="form-control" placeholder="Name" required autofocus>
+              <input type="email" class="form-control" placeholder="Email address" required autofocus>
+               <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+            </form>
+          </div> -->
 
-	Vestibulum at neque turpis. Mauris vulputate quam vel dui lobortis, ut tincidunt mi condimentum. Proin commodo est faucibus odio rhoncus, in congue odio consequat. Nunc placerat hendrerit viverra. Donec mattis massa a nisi tincidunt tempus. Ut eu ultrices ipsum. Nam interdum non ipsum nec bibendum. Proin ornare mi lobortis dictum posuere. Quisque malesuada semper dolor nec egestas.
+          <% if @settings.enable_paypal_donations %>
+            <div class="sidebar-module sidebar-module-inset">
+              <h4>Donate</h4>
+               <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=<%= @settings.paypal_email %>&item_name=<%= @charity.name %>&currency_code=EUR" target="_new" class="btn btn-lg btn-primary btn-block">Donate Now</a>
+            </div>
+          <% end %>
 
-	Sed dapibus in turpis sed hendrerit. Cras lobortis tellus augue, in pretium sapien vulputate vel. Nullam hendrerit, neque vitae tincidunt dignissim, tortor lacus mollis libero, nec rutrum ante tellus quis elit. Cras laoreet auctor sem, sit amet convallis ligula lacinia sed. Etiam vel libero mollis turpis rutrum cursus. Maecenas ut enim eu leo ultricies interdum vitae id ipsum. Aliquam at mollis massa. Etiam vestibulum elementum nisi et tempor. Suspendisse hendrerit lacinia quam, non accumsan sapien gravida et. Nullam bibendum convallis enim, a feugiat est gravida sed. Phasellus adipiscing tortor ultrices massa consectetur adipiscing. Aenean in ullamcorper nulla.
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>Report Lost animal</h4>
+            <%= form_for :animal_detail, url: {controller: "charity", action: "report_animal"}, html: {class: "form-signin"} do |f| %>
+              <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+              <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+              <%= f.text_field :animal_name, class: "form-control", placeholder: "Animal Name" %>
+              <%= f.text_area :details, class: "form-control", placeholder: "Details" %>
+              <%= f.submit 'Report', class: "btn btn-lg btn-primary btn-block" %>
+            <% end %>
+          </div>
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>Tags</h4>
+            <ol class="list-unstyled">
+                  <li><span class="tags"><a href="<%= charity_path(@charity) %>">View All</a></span></li>
+                  <% @charity.all_tags_ordered.each do |tag| %>
+                <li><span class="tags"><a href="<%= charity_path(@charity) %>?tag=<%=tag %>"><%= tag.capitalize %></a></span></li>
+              <% end %>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
 
-	Nunc eget tortor sem. Cras in eleifend mi, et consequat felis. Curabitur feugiat est eu urna porttitor ornare. Aenean tincidunt metus a nisl egestas placerat. Fusce posuere eleifend elit, eu bibendum elit. Curabitur dapibus turpis erat, quis lacinia nulla euismod ut. Vestibulum vitae fermentum lorem. Sed auctor facilisis mi, ac condimentum risus luctus et.
-
-	Maecenas facilisis justo non felis molestie congue. Suspendisse ante mauris, tincidunt sit amet lacus vitae, luctus imperdiet turpis. Nullam et eros ut mi posuere egestas sit amet quis arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pretium purus id sem sodales, sit amet varius dolor consequat. Phasellus nec lorem eget neque adipiscing scelerisque. Nullam a libero mattis, aliquam arcu ut, bibendum leo.
-	</p>
-
-</div>
-<div id="rhs">
-	<h1>BLA#h!!</h2>
-	<p>Vestibulum at neque turpis. Mauris vulputate quam vel dui lobortis, ut tincidunt mi condimentum. Proin commodo est faucibus odio rhoncus, in congue odio consequat. Nunc placerat hendrerit viverra. Donec mattis massa a nisi tincidunt tempus. Ut eu ultrices ipsum. Nam interdum non ipsum nec bibendum. Proin ornare mi lobortis dictum posuere. Quisque malesuada semper dolor nec egestas.
-</div>
+      </div><!-- /.row -->

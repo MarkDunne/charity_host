@@ -24,3 +24,32 @@ body{
 	margin: 0;
 	padding: 0;
 }
+
+.wysiwyg-font-size-large {
+  font-size: large;
+}
+.wysiwyg-font-size-small {
+  font-size: small;
+}
+
+.wysiwyg-color-red {
+  color: red;
+}
+.wysiwyg-color-green {
+  color: green;
+}
+.wysiwyg-color-blue {
+  color: blue;
+}
+
+.wysiwyg-text-align-center {
+  text-align: center;
+}
+
+.wysiwyg-text-align-left {
+  text-align: left;
+}
+
+.wysiwyg-text-align-right {
+  text-align: right;
+}

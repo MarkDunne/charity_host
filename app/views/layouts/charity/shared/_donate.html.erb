@@ -1,5 +1,0 @@
-<div>
-	<% if @settings.enable_paypal_donations %>
-		<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=<%= @settings.paypal_email %>&item_name=<%= @charity.name %>&currency_code=EUR" target="_new">Donate Now</a>
-	<% end %>
-</div>

@@ -29,6 +29,13 @@ user.password = "password"
 user.password_confirmation = "password"
 user.superadmin = true
 user.save!
+
+user = User.new
+user.email = "LostAnimal@charityhosting.ie"
+user.password = "password"
+user.password = "password"
+user.save!
+
 charity = Charity.create(name: "Marks Charity", domain: "lvh.me")
 AdminsCharity.create(user_id: 1, charity_id: 1)
 post = Post.create(charity_id: 1, user_id: 1, title:"some title", content:"some content")

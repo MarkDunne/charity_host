@@ -10,8 +10,6 @@ class CharityController < ApplicationController
 		end
 	end
 
-
-
 	def posts
 		if @is_rendering_charity
 			render 'charity/patron/posts'
@@ -43,6 +41,27 @@ class CharityController < ApplicationController
 		if !@is_rendering_charity
 			render 'charity/admin/manage_admins'
 		end
+	end
+
+
+	def report_animal
+		report = report_animal_params
+		lostAnimalUser = User.find_by_email("lostanimal@charityhosting.ie")
+		content = "<p>Name: " + report[:name] + "</p>"
+		content += "<p>Email: " + report[:email] + "</p>"
+		content += "<p>Animal Name: " + report[:animal_name] + "</p>"
+		content += "<p>Details: " + report[:details] + "</p>"
+
+		post = Post.new(user_id: lostAnimalUser.id, charity_id: @charity.id, title: "Lost Animal", content: content)
+	    post.animal_detail = AnimalDetail.create(report)
+
+	    if post.save
+	      post.tags.create(tag: "LostAnimal")
+	      flash[:notice] = "Report created successfully"
+	    else
+	      flash[:error] = "Error creating report"
+	    end
+	    redirect_to charity_path(@charity)
 	end
 
 	def create
@@ -94,6 +113,10 @@ class CharityController < ApplicationController
 
 	def check_passcode_params
 		params.require(:charity).permit(:passcode)
+	end 
+
+	def report_animal_params
+		params.require(:animal_detail).permit(:name, :email, :animal_name, :details)
 	end 
 
 	def new_charity_params

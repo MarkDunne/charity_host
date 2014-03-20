@@ -2,7 +2,7 @@
 
 <% @charity.admin_posts.each do |post| %>
 	<div class="post">
-		<h3><%= post.title %><span class="date"><%= post.created_at.strftime("%m/%d/%Y")%></span></h3>
+		<h3><%= post.title %><span class="date"><%= post.created_at.strftime("%d/%m/%Y")%></span></h3>
 		<p><%= post.content %></p>
 
 		<ul>
@@ -10,7 +10,7 @@
 			<div id="<%= post.id %>" class="comments" style="display:none">
 				<% post.comments.each do |comment| %>
 					<li><b><%= comment.user.email %></b><%= comment.content %></li>
-					<span  class="timestamp"><%= comment.created_at.strftime("%m/%d/%Y")%></span>
+					<span  class="timestamp"><%= comment.created_at.strftime("%d/%m/%Y")%></span>
 					<br/>
 				<% end %>
 			</div>

@@ -11,22 +11,7 @@
 
 <div class="page-section">
 	<h3>User Posts</h3>
-	<ul>
-		<% @charity.user_posts.each do |post| %>
-			<li>
-				<span><%= post.title  %></span>
-				<span class="list-right">
-					<span class="list-time"><%= post.created_at.strftime("%m/%d/%Y") %></span>
-					<a href="#" class="edit">
-						<%= image_tag 'glyphicons_150_edit.png', alt: "Edit" %>
-					</a>
-					<a href="#" class="delete">
-						<%= image_tag 'glyphicons_197_remove.png', alt: "Delete" %>
-					</a>
-				</span>
-			</li>
-		<% end %>
-	</ul>
+	<%= render partial: 'post/shared/post_list', locals: {posts: @charity.user_posts} %>
 </div>
 
 <script type="text/javascript">

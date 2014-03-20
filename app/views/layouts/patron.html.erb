@@ -4,6 +4,14 @@
 		  <link data-turbolinks-track="true" href="/assets/application.css?body=1" media="all" rel="stylesheet" />
  		 <link data-turbolinks-track="true" href="/assets/patron/<%= @settings.base_style %>" rel="stylesheet" />
  		 <% @charity.views.create(ip: request.remote_ip) %>
+
+ 		 <style type="text/css">
+ 		 <% if @settings.text_color %>
+ 		 	*{
+ 		 		color: <%= "#" + @settings.text_color %>;
+ 		 	}
+ 		 <% end %> 
+ 		 </style>
 	</head>
 	<body>
 		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">

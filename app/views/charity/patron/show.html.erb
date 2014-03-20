@@ -1,5 +1,10 @@
 <div class="row">
         <div class="jumbotron">
+          <% if @settings.header_image %>
+            <img src="<%= @settings.header_image %>">
+          <% else %>
+            <p>Set your header image in the admin panel</p>
+          <% end %>
         </div>  
         <div class="col-sm-8 blog-main">
           <div class="blog-header">
@@ -36,14 +41,22 @@
               <h4>About</h4>
               <p><%= @settings.about.html_safe %></p>
             </div>
-          <div class="sidebar-module sidebar-module-inset">
+<!--           <div class="sidebar-module sidebar-module-inset">
             <h4>Sign Up for our Newsletter</h4>
             <form class="form-signin" role="form" action="" method="">
               <input type="name" class="form-control" placeholder="Name" required autofocus>
               <input type="email" class="form-control" placeholder="Email address" required autofocus>
                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
             </form>
-          </div>
+          </div> -->
+
+          <% if @settings.enable_paypal_donations %>
+            <div class="sidebar-module sidebar-module-inset">
+              <h4>Donate</h4>
+               <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=<%= @settings.paypal_email %>&item_name=<%= @charity.name %>&currency_code=EUR" target="_new" class="btn btn-lg btn-primary btn-block">Donate Now</a>
+            </div>
+          <% end %>
+
           <div class="sidebar-module sidebar-module-inset">
             <h4>Report Lost animal</h4>
             <%= form_for :animal_detail, url: {controller: "charity", action: "report_animal"}, html: {class: "form-signin"} do |f| %>

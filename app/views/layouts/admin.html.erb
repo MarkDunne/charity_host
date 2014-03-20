@@ -4,6 +4,7 @@
   <title>CharityHost</title>
   	<link data-turbolinks-track="true" href="/assets/application.css?body=1" media="all" rel="stylesheet" />
 	<link data-turbolinks-track="true" href="/assets/charity.css?body=1" media="all" rel="stylesheet" />
+	<link data-turbolinks-track="true" href="/assets/pick-a-color-1.2.2.min.css?body=1" media="all" rel="stylesheet" />
 
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -19,7 +20,8 @@
 		<li><%= link_to 'Statistics', charity_path(@charity, :statistics) %></li>
 		<li class="category"><span>Appearance</span></li>
 		<li><a href="<%= appearance_path(@charity, :template) %>">Change Base Template</a></li>
-		<li><a href="<%= appearance_path(@charity, :configure_template) %>">Configure Template</a></li>
+		<li><a href="<%= appearance_path(@charity, :configure_template) %>">Change Text Color</a></li>
+		<li><a href="<%= appearance_path(@charity, :configure_template) %>">Change Header Image</a></li>
 
 		<li class="category"><span>Settings</span></li>
 		<li><a href="<%= settings_path(@charity, :index) %>">About Your Charity</a></li>

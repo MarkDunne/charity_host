@@ -8,7 +8,14 @@
   <div class="form-group">
     <%= f.label :text_color, "Text Color", class: "col-sm-4 control-label" %>
     <div class="col-sm-6">
-      <%= f.text_field :text_color, class: "form-control" %>
+      <%= f.text_field :text_color, class: "pick-a-color form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label(:header_image, "Header Image URL", class: "col-sm-4 control-label" ) %>
+    <div class="col-sm-6">
+      <%= f.text_field :header_image, class: "form-control", placeholder: "http://i.imgur.com/XnhTlUQ.jpg" %>
     </div>
   </div>
 
@@ -17,4 +24,11 @@
       <%= f.submit "Save Changes", :class => "btn btn-primary form-control" %>
     </div>
   </div>
+  </div>
 <% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".pick-a-color").pickAColor();
+  });
+</script>

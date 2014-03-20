@@ -11,6 +11,6 @@ class AppearanceController < RedirectController
   private
 
 	def update_appearance_params
-		params.require(:charity_settings).permit(:base_style, :text_color)
+		params.require(:charity_settings).permit(:header_image, :base_style, :text_color)
 	end 
 end

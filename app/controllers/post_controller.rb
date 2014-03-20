@@ -4,7 +4,7 @@ class PostController < RedirectController
   before_filter :find_post, :only => [:edit, :update, :destroy]
 
   def index
-    @posts = @charity.posts.order('created_at DESC')
+    @posts = @charity.all_posts_ordered
     if !params[:tag].blank?
       @posts = @posts.select{|p| p.has_tag params[:tag]} 
     end

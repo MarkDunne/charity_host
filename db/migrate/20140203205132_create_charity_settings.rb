@@ -6,7 +6,7 @@ class CreateCharitySettings < ActiveRecord::Migration
       t.string :text_color
       t.boolean :enable_paypal_donations
       t.string :paypal_email
-      t.text :about
+      t.text :about, default: "Update 'About Your Charity' in the admin view"
       t.timestamps
     end
   end

@@ -23,16 +23,20 @@ class Charity < ActiveRecord::Base
     end while Charity.find_by_passcode(self.passcode)    
   end
 
+  def all_posts_ordered
+    posts.order('created_at DESC')
+  end
+
   def admin_posts
-    posts.order('created_at DESC').select{|p| p.author.admin_of self}
+    all_posts_ordered.select{|p| p.author.admin_of self}
   end
 
   def user_posts
-    posts.order('created_at DESC').select{|p| !p.author.admin_of self}
+    all_posts_ordered.select{|p| !p.author.admin_of self}
   end
 
   def all_tags
-    admin_posts.map{|p| p.tags}.flatten
+    posts.map{|p| p.tags}.flatten
   end
 
   def all_tags_ordered
